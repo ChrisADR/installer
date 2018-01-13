@@ -59,7 +59,7 @@ def show_msg_open_chroot(msg):
     except ChildProcessError:
         handle_error()
 
-def show_initial_msg(msg):
+def show_msg(msg):
     clear_screen()
     print(msg)
 

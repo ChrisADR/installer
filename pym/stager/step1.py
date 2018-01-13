@@ -56,7 +56,7 @@ def init(args):
         
 def print_welcome_msg():
     global welcome_msg
-    oshelper.show_initial_msg(welcome_msg)
+    oshelper.show_msg(welcome_msg)
 
 def process_selection(selection):
     if selection=='a':
