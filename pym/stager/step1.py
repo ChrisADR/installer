@@ -22,12 +22,13 @@ welcome_msg='''\
                                 Welcome to stager!
 ===============================================================================
 Before begin we need to make sure that you reach www.gentoo.org to be able to
-download stage3 tarball. You can check with a simple
+download stage3 tarball. You can check with: 
 
     ping -c 2 www.gentoo.org
 
 Otherwhise I can try to do it for you. Please type one of these options:
 '''
+
 input_msg='''\
     [a]: try automatically
     [s]: spawn a shell to do it manually
@@ -78,7 +79,7 @@ def process_selection(selection):
 def test_connectivity():
     print('Verifying connectivity with www.gentoo.org...')
     response = oshelper.test_connection('www.gentoo.org')
-    if response.returncode==0:
+    if response==0:
         return True
     else:
         return False
