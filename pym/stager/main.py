@@ -32,7 +32,7 @@ def main():
         begin_parser.add_argument("-s", "--step",
                 metavar="N",
                 default=0,
-                choices=[1,2],
+                choices=[1,2,3,4,5,6],
                 type=int,
                 help="begin on a specific step of installation")
 
