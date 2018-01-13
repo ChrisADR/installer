@@ -43,10 +43,10 @@ def main():
                 metavar="<command>",
                 dest="action")
 
-        begin_parser = subparsers.add_parser("begin",
+        beginner_parser = subparsers.add_parser("beginner",
                 help="begin a new Gentoo Linux installation")
 
-        begin_parser.add_argument("-s", "--step",
+        beginner_parser.add_argument("-s", "--step",
                 metavar="N",
                 default=0,
                 choices=[1,2,3,4,5,6,7],
@@ -58,9 +58,9 @@ def main():
 
         args = parser.parse_args()
 
-        if args.action=="begin":
-            import pym.stager.begin as begin
-            begin.init(args)
+        if args.action=="beginner":
+            import pym.stager.beginner as beginner
+            beginner.init(args)
         elif args.action=="generate":
             import pym.stager.generate as generate
             generate.init(args)
