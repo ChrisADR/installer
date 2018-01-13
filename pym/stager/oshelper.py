@@ -8,13 +8,13 @@ def clear_screen():
 
 def open_shell():
     print("I'm going to open a new terminal inside stager,you need to exit with 'exit'")
-    res = subprocess.run('/bin/bash')
+    res = subprocess.call('/bin/bash')
     if res.returncode!=0:
         raise ChildProcessError()
 
 def open_chroot():
     print("Chrooting into the new Gentoo system, use `exit` to exit")
-    res = subprocess.run(['/bin/chroot','/mnt/gentoo','/bin/bash'])
+    res = subprocess.call(['/bin/chroot','/mnt/gentoo','/bin/bash'])
     if res.returncode!=0:
         raise ChildProcessError()
 
@@ -47,14 +47,14 @@ def show_initial_msg(msg):
     print(msg)
 
 def check_mnt_gentoo():
-    res = subprocess.run(['/bin/findmnt','/mnt/gentoo'],stdout=subprocess.PIPE)
+    res = subprocess.call(['/bin/findmnt','/mnt/gentoo'],stdout=subprocess.PIPE)
     if res.returncode!=0:
         return False
     else:
         return True
 
 def check_makeconf_march():
-    res = subprocess.run(['/bin/grep','march','/mnt/gentoo/etc/portage/make.conf'],stdout=subprocess.DEVNULL)
+    res = subprocess.call(['/bin/grep','march','/mnt/gentoo/etc/portage/make.conf'],stdout=subprocess.DEVNULL)
     if res.returncode!=0:
         return False
     else:
@@ -65,7 +65,7 @@ def print_and_wait(msg):
     time.sleep(5)
 
 def test_connection(host):
-    res = subprocess.run(['/bin/ping','-c','2','%s'%(host)],stdout=subprocess.DEVNULL)
+    res = subprocess.call(['/bin/ping','-c','2','%s'%(host)],stdout=subprocess.DEVNULL)
     return res
 
 def finish_prototype(msg):
