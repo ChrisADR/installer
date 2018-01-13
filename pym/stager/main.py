@@ -49,7 +49,7 @@ def main():
         beginner_parser.add_argument("-s", "--step",
                 metavar="N",
                 default=0,
-                choices=[1,2,3,4,5,6,7],
+                choices=[1,2,3,4,5,6,7,8,9,10,11],
                 type=int,
                 help="begin on a specific step of installation")
 
