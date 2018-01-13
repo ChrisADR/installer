@@ -21,3 +21,15 @@ def resume(step,args):
     elif step==2:
         import pym.stager.step2 as step2
         step2.init(args)
+    elif step==3:
+        import pym.stager.step3 as step3
+        step3.init(args)
+    elif step==4:
+        import pym.stager.step4 as step4
+        step4.init(args)
+    elif step==5:
+        import pym.stager.step5 as step5
+        step5.init(args)
+    elif step==6:
+        import pym.stager.step6 as step6
+        step6.init(args)
