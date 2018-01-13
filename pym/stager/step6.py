@@ -6,7 +6,7 @@ welcome_msg="""\
 ================================================================================
 Congratulations!! Your are about to enter into your brand new Gentoo system.
 Please keep in mind that if you are at this point, you should check that all
-the necessary filesystems are linked (step 6) and if for some reason something
+the necessary filesystems are linked (step 5) and if for some reason something
 goes wrong, you can resume from here (in most cases and if you don't need to
 change your partition table or filesystems and still have internet connection).
 
