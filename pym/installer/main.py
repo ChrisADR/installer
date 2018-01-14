@@ -20,8 +20,7 @@ import os
 
 def main():
     try:
-        #if os.geteuid() != 0:
-        #    raise PermissionError()
+        check_permission()
 
         parser = argparse.ArgumentParser(
                 description="Installer is designed to aid users to install Gentoo Linux",
@@ -72,3 +71,6 @@ def main():
     except PermissionError:
         print("You need to be root for using installer")
         
+def check_permission():
+    if os.geteuid() != 0:
+        raise PermissionError()
