@@ -21,11 +21,17 @@ Installer needs to accomplish two use cases needed by developers and new users w
 * They need to be able to create a custom _stageX_ tarball from scratch.
 * An optional use case, if I succeed in the first two, will be to have a TUI (Terminal User Interface) to be able to do most of the configuration.
 
-## Dependencies
+## Dependencies and Runtime Dependencies
 
 Installer will depend on these packages and libraries:
 
-* GNU tar
+* GNU tar (runtime)
+* Iputils (runtime)
+* GNU coreutils (runtime)
+* Bash (runtime)
+* Util-linux (runtime)
+* GNU grep (runtime)
+* Ncurses (runtime)
 
 ## Contribution
 
