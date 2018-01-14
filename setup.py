@@ -20,11 +20,11 @@
 from distutils.core import setup
 
 setup(name='installer',
-    version='0.1.0dev',
+    version='0.1.0-pre-alpha',
     description='Gentoo Installer Prototype',
     author='Christopher Díaz Riveros',
     author_email='chrisadr@gentoo.org',
-    url='https://github.com/ChrisADR/stager',
+    url='https://github.com/ChrisADR/installer',
     license='GPLv2',
     packages=[
         'pym/installer',
@@ -33,7 +33,7 @@ setup(name='installer',
         'bin/installer',
         ],
     classifiers=[
-        "Development Status :: 1 -Planning",
+        "Development Status :: 2 - Pre-Alpha",
         "Environment :: Console",
         ],
     )
