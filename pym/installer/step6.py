@@ -31,7 +31,6 @@ I'll execute the following command, and after that you'll need to execute the
 following two:
 
     chroot /mnt/gentoo /bin/bash
-
     source /etc/profile         #(this will set all the ENV variables)
     export PS1="(chroot) PS1"   #(this will help you to recognize the terminal)
 
@@ -41,6 +40,7 @@ mount them as well.
     mkdir /{boot,home}
     mount /dev/sdXy /{boot,home}
 
+Finally, run `installer beginner -s 7` to continue with the installation.
 """
 
 def init(args):
