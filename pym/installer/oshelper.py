@@ -21,7 +21,7 @@ import subprocess
 import time
 
 def clear_screen():
-    os.system('clear')
+    os.system('/usr/bin/clear')
 
 def open_shell():
     print("I'm going to open a new terminal inside installer,you need to exit with 'exit'")
