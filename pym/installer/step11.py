@@ -1,21 +1,21 @@
 #Copyright (C) Christopher Díaz Riveros <chrisadr@gentoo.org>
 #
-#step11.py is part of Stager.
+#step11.py is part of Installer.
 #
-#Stager is free software: you can redistribute it and/or modify
+#Installer is free software: you can redistribute it and/or modify
 #it under the terms of the GNU General Public License v2 as published by
 #the Free Software Foundation, either version 2 of the License, or
 #(at your option) any later version.
 #
-#Stager is distributed in the hope that it will be useful,
+#Installer is distributed in the hope that it will be useful,
 #but WITHOUT ANY WARRANTY; without even the implied warranty of
 #MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #GNU General Public License v2 for more details.
 #
 #You should have received a copy of the GNU General Public License v2
-#along with Stager.  If not, see <http://www.gnu.org/licenses/>.
+#along with Installer.  If not, see <http://www.gnu.org/licenses/>.
 
-import pym.stager.oshelper as oshelper
+import pym.installer.oshelper as oshelper
 
 welcome_msg="""\
                        Step 11 - Configuring the bootloader
@@ -77,7 +77,7 @@ https://wiki.gentoo.org/wiki/Handbook:AMD64/Full/Working
 https://wiki.gentoo.org/wiki/Handbook:AMD64/Full/Portage
 
 If you are reading this message this could mean that now you have your own
-Gentoo system, thank your for trying stager and if you find any bug, or error,
+Gentoo system, thank your for trying installer and if you find any bug, or error,
 even if you have enhancement ideas, feel free to email me:
 
     chrisadr@gentoo.org

@@ -1,23 +1,23 @@
-.\" Manpage for stager
+.\" Manpage for installer
 .\" Contact chrisadr@gentoo.org to correct errors or typos.
-.TH "STAGER" "1" "Dic 2017" "stager" "Stager"
+.TH "STAGER" "1" "Dic 2017" "installer" "Installer"
 .SH "NAME"
-stager  \- Command\-line interface to install Gentoo Linux
+installer  \- Command\-line interface to install Gentoo Linux
 
 
 .SH "SYNOPSIS"
 
 .TP
-.BR stager
+.BR installer
 [\fIoptions\fR] <\fIaction\fR> [\fIargs\fR] ...
 
 
 .SH "DESCRIPTION"
 
-\fBstager\fR is a prototype command-line interface designed
-to aid users to install Gentoo Linux. \fBStager\fR provides
+\fBinstaller\fR is a prototype command-line interface designed
+to aid users to install Gentoo Linux. \fBInstaller\fR provides
 an interactive walkthrough on the installation process.
-\fBStager\fR can also create a \fIstageX\fR tarball which
+\fBInstaller\fR can also create a \fIstageX\fR tarball which
 contains all the necessary information to migrate a system.
 
 
@@ -38,13 +38,13 @@ set of files that help in Gentoo migration process.
 
 .TP
 .BR "\-\-help (\fB\-h\fR)
-Displays help information for stager. Adding one \fBACTION\fR
+Displays help information for installer. Adding one \fBACTION\fR
 will provide specific help information about extra
 [\fIargs\fR].
 .PP
 For example:
 .PP
-	stager beginner [--help | -h]
+	installer beginner [--help | -h]
 
 .TP
 .BR "\-\-step (\fB-s\fR)
@@ -53,12 +53,12 @@ guide on a determined step of installation.
 
 .TP
 .BR "\-\-tui (\fB-t\fR)
-Launchs stager's terminal user interface (experimental). A
+Launchs installer's terminal user interface (experimental). A
 ncurses based walkthrough.
 
 .TP
 .BR "\-\-version (\fB-v\fR)
-Displays version from stager.
+Displays version from installer.
 
 .SH "SEE ALSO"
 
@@ -66,7 +66,7 @@ Displays version from stager.
 .SH "BUGS"
 
 .TP
-If you find a bug in stager, please email to:
+If you find a bug in installer, please email to:
 .PP
 \fBchrisadr@gentoo.org\fR
 

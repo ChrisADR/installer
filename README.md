@@ -1,7 +1,7 @@
-# stager
-## Stager: An unofficial Gentoo installer designed in Python as Thesis Project from ChrisADR
+# installer
+## Installer: An unofficial Gentoo installer designed in Python as Thesis Project from ChrisADR
 
-Welcome to stager, an unofficial Gentoo installer designed and developed by ChrisADR.
+Welcome to installer, an unofficial Gentoo installer designed and developed by ChrisADR.
 
 ### Why an unofficial installer?
 
@@ -13,9 +13,9 @@ Python is the official language from Portage and is used widely among Gentoo dev
 
 ## Use cases
 
-Given the multiple configuration cases, stager focuses on the installation of systems based on amd64. It will be designed to follow most sections from the Gentoo Handbook.
+Given the multiple configuration cases, installer focuses on the installation of systems based on amd64. It will be designed to follow most sections from the Gentoo Handbook.
 
-Stager needs to accomplish two use cases needed by developers and new users when installin Gentoo.
+Installer needs to accomplish two use cases needed by developers and new users when installin Gentoo.
 
 * They need to be able to create a custom _stageX_ tarball given a current installation.
 * They need to be able to create a custom _stageX_ tarball from scratch.
@@ -23,7 +23,7 @@ Stager needs to accomplish two use cases needed by developers and new users when
 
 ## Dependencies
 
-Stager will depend on these packages and libraries:
+Installer will depend on these packages and libraries:
 
 * GNU tar
 
