@@ -41,7 +41,7 @@ Once you extract stageX tarball you'll still need to:
 
 def init(args):
     prepare_generate()
-    oshelper.generate_default_stagex()
+    oshelper.generate_stagex(args)
 
 
 def prepare_generate():

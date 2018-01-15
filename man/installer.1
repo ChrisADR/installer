@@ -48,11 +48,6 @@ For example:
 	installer beginner [--help | -h]
 
 .TP
-.BR "\-\-step (\fB-s\fR)
-Only available when <\fBaction\fR> is \fBbegin\fR. Starts the
-guide on a determined step of installation.
-
-.TP
 .BR "\-\-tui (\fB-t\fR)
 Launchs installer's terminal user interface (experimental). A
 ncurses based walkthrough.
@@ -60,6 +55,19 @@ ncurses based walkthrough.
 .TP
 .BR "\-\-version (\fB-v\fR)
 Displays version from installer.
+
+
+.SH "ACTION'S OPTIONS"
+
+.TP
+.BR "\-\-step (\fB-s\fR)
+Only available when <\fBaction\fR> is \fBbeginner\fR. Starts the
+guide on a determined step of installation.
+
+.TP
+.BR "\-\-include-kernel (\fB-k\fR)
+Only available when <\fBaction\fR> is \fBgenerate\fR. Includes
+/usr/src directory in stageX tarball.
 
 .SH "SEE ALSO"
 

@@ -55,6 +55,11 @@ def main():
         generate_parser = subparsers.add_parser("generate",
                 help="generate a stageX tarball from current system")
 
+        generate_parser.add_argument("-k","--include-kernel",
+                action='store_true',
+                dest='kernel',
+                help="include /usr/src/ directory in stageX")
+
         args = parser.parse_args()
 
         if args.action=="beginner":

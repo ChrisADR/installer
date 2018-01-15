@@ -102,15 +102,22 @@ def check_resolv_conf():
 def check_shm():
     return os.path.islink('/dev/shm')
 
-def generate_default_stagex():
+def generate_stagex(args):
     cur_date=time.strftime("%Y%m%d")
     stageX_name="stageX-%s.tar.xz"%(cur_date)
-    subprocess.call(['/bin/tar',
-        'cpf',
-        stageX_name,
-        '/etc/portage/',
-        '/etc/timezone',
-        '/etc/locale.gen',
-        '/var/lib/portage/world',
-        "--xattrs-include='*.*'",
-        '--numeric-owner',],stderr=subprocess.DEVNULL)
+    tar_cmd=[]
+    tar_cmd.append('/bin/tar')
+    tar_cmd.append('cpf')
+    tar_cmd.append(stageX_name)
+    tar_cmd.append("--xattrs-include='*.*'")
+    tar_cmd.append('--numeric-owner')
+
+    if args.kernel:
+        tar_cmd.append('/usr/src/')
+
+    tar_cmd.append('/etc/portage')
+    tar_cmd.append('/etc/timezone')
+    tar_cmd.append('/etc/locale.gen')
+    tar_cmd.append('/var/lib/portage/world')
+
+    subprocess.call(tar_cmd,stderr=subprocess.DEVNULL)
