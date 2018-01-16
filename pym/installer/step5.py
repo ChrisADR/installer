@@ -52,6 +52,9 @@ filesystems to be capable to change the Linux root. Use the following commands:
     mount --make-rslave         /mnt/gentoo/dev
 
 Note: --make-rslave is needed for systemd support later in installation.
+
+I'll install myself inside the chroot so you'll be able to continue the tutorial
+inside the chroot.
 '''
 
 def init(args):
@@ -62,6 +65,7 @@ def init(args):
         verify_files()
         verify_shm()
         prepare_mount_fs()
+        bootstrap_in_chroot()
         step6.init(args)
 
 def prepare_ebuild_repo():
@@ -71,6 +75,25 @@ def prepare_ebuild_repo():
 def prepare_mount_fs():
     global prepare_mount_msg
     oshelper.show_msg_open_shell(prepare_mount_msg)
+
+def bootstrap_in_chroot():
+    installing_msg='''\
+Downloading and installing in the chroot, please wait
+'''
+    oshelper.show_msg(installing_msg)
+    try:
+        oshelper.bootstrap_in_chroot()
+    except ChildProcessError:
+        err_msg='''\
+I had problems to download/extract/install in the chroot, please do
+it manually:
+
+    wget -qP /tmp https://github.com/ChrisADR/installer/releases/<desired_release>.tar.gz
+    tar xf /tmp/<desired_release>.tar.gz -C /tmp
+    cd /tmp/<extracted_dir>
+    python setup.py install --prefix=/mnt/gentoo/usr
+'''
+        oshelper.show_msg_open_shell(err_msg)
 
 def verify_shm():
     if oshelper.check_shm():
