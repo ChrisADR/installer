@@ -81,6 +81,27 @@ def print_and_wait(msg):
     print(msg)
     time.sleep(5)
 
+def bootstrap_in_chroot():
+    tag='0.1.0-pre-alpha'
+    res_download = download_installer(tag)
+    if res_download==0:
+        res_extract = extract_installer(tag)
+        if res_extract==0:
+            install_installer(tag)
+        else:
+            raise ChildProcessError
+    else:
+        raise ConnectionError
+
+def download_installer(tag):
+    return subprocess.call(['/usr/bin/wget','-qP','/tmp','https://github.com/ChrisADR/installer/archive/v%s.tar.gz'%(tag)])
+
+def extract_installer(tag):
+    return subprocess.call(['/bin/tar','xf','/tmp/v%s.tar.gz'%(tag),'-C','/tmp'])
+
+def install_installer(tag):
+    subprocess.call(['/usr/bin/python','/tmp/installer-%s/setup.py'%(tag),'install','--prefix=/mnt/gentoo/usr'],cwd='/tmp/installer-%s'%(tag))
+
 def test_connection(host):
     res = subprocess.call(['/bin/ping','-c','2','%s'%(host)],stdout=subprocess.DEVNULL)
     return res
