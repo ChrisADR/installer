@@ -32,7 +32,7 @@ following two:
 
     chroot /mnt/gentoo /bin/bash
     source /etc/profile         #(this will set all the ENV variables)
-    export PS1="(chroot) PS1"   #(this will help you to recognize the terminal)
+    export PS1="(chroot) $PS1"   #(this will help you to recognize the terminal)
 
 If you created some extra partitions like home or boot, now is a good time to
 mount them as well.
