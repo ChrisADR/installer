@@ -100,7 +100,7 @@ def extract_installer(tag):
     return subprocess.call(['/bin/tar','xf','/tmp/v%s.tar.gz'%(tag),'-C','/tmp'])
 
 def install_installer(tag):
-    subprocess.call(['/usr/bin/python','/tmp/installer-%s/setup.py'%(tag),'install','--prefix=/mnt/gentoo/usr'],cwd='/tmp/installer-%s'%(tag))
+    subprocess.call(['/usr/bin/python','/tmp/installer-%s/setup.py'%(tag),'install','--prefix=/mnt/gentoo/usr','--record','/tmp/installer_files.txt'],cwd='/tmp/installer-%s'%(tag))
 
 def test_connection(host):
     res = subprocess.call(['/bin/ping','-c','2','%s'%(host)],stdout=subprocess.DEVNULL)

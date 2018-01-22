@@ -77,7 +77,7 @@ https://wiki.gentoo.org/wiki/Handbook:AMD64/Full/Working
 https://wiki.gentoo.org/wiki/Handbook:AMD64/Full/Portage
 
 If you are reading this message this could mean that now you have your own
-Gentoo system, thank your for trying installer and if you find any bug, or error,
+Gentoo system, thank your for trying installer and if you find any bug or error,
 even if you have enhancement ideas, feel free to email me:
 
     chrisadr@gentoo.org
