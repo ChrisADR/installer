@@ -15,7 +15,8 @@
 #You should have received a copy of the GNU General Public License v2
 #along with Installer.  If not, see <http://www.gnu.org/licenses/>.
 
-import pym.installer.walkthrough as walkthrough 
+import pym.installer.walkthrough as walkthrough
+import pym.installer.tui as tui
 
 
 def init(args):
@@ -24,8 +25,15 @@ def init(args):
     Possible args:
     
     @step: wheter to select a specific installation step
+    @tui: wheter to launch TUI version to select step
     """
-    if args.step != 0:
-        walkthrough.resume(args.step,args)
+    if not args.tui:
+        if args.step != 0:
+            walkthrough.resume(args.step,args)
+        else:
+            walkthrough.begin(args)
     else:
-        walkthrough.begin(args)
+        if args.step != 0:
+            tui.indicate(args.step)
+        else:
+            tui.begin(args)
