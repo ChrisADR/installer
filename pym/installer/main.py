@@ -26,10 +26,6 @@ def main():
                 description="Installer is designed to aid users to install Gentoo Linux",
                 epilog="If you find this useful or find a bug please contact to chrisadr@gentoo.org")
 
-        parser.add_argument("-t", "--tui",
-                action="store_true",
-                help="launch Terminal User Interface")
-
         parser.add_argument("-v", "--version",
                 action="version",
                 version="%(prog)s 0.1.0dev")
@@ -51,6 +47,11 @@ def main():
                 choices=[1,2,3,4,5,6,7,8,9,10,11],
                 type=int,
                 help="begin on a specific step of installation")
+
+        beginner_parser.add_argument("-t", "--tui",
+                action="store_true",
+                dest='tui',
+                help="launch Terminal User Interface")
 
         generate_parser = subparsers.add_parser("generate",
                 help="generate a stageX tarball from current system")
