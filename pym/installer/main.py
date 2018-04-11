@@ -18,6 +18,9 @@
 import argparse
 import os
 
+import pym.installer.beginner as beginner
+import pym.installer.generate as generate
+
 def main():
     try:
         check_permission()
@@ -41,14 +44,15 @@ def main():
         beginner_parser = subparsers.add_parser("beginner",
                 help="begin a new Gentoo Linux installation")
 
-        beginner_parser.add_argument("-s", "--step",
+        beginner_exclusive_group = beginner_parser.add_mutually_exclusive_group()
+        beginner_exclusive_group.add_argument("-s", "--step",
                 metavar="N",
                 default=0,
                 choices=[1,2,3,4,5,6,7,8,9,10,11],
                 type=int,
                 help="begin on a specific step of installation")
 
-        beginner_parser.add_argument("-t", "--tui",
+        beginner_exclusive_group.add_argument("-t", "--tui",
                 action="store_true",
                 dest='tui',
                 help="launch Terminal User Interface")
@@ -64,10 +68,8 @@ def main():
         args = parser.parse_args()
 
         if args.action=="beginner":
-            import pym.installer.beginner as beginner
             beginner.init(args)
         elif args.action=="generate":
-            import pym.installer.generate as generate
             generate.init(args)
         else:
             raise ValueError()
