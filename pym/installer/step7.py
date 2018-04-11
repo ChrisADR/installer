@@ -84,14 +84,11 @@ Then save your changes and update your system with:
 """
 
 
-def init(args):
-    if args.tui:
-        pass
-    else:
-        prepare_ebuild_repo()
-        prepare_profile_selection()
-        prepare_make_conf()
-        step8.init(args)
+def init():
+    prepare_ebuild_repo()
+    prepare_profile_selection()
+    prepare_make_conf()
+    step8.init()
 
 def prepare_ebuild_repo():
     global welcome_msg

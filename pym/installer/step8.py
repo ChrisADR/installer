@@ -63,13 +63,10 @@ reload the environment:
     env-update && source /etc/profile && export PS1="(chroot) $PS1"
 """
 
-def init(args):
-    if args.tui:
-        pass
-    else:
-        prepare_timezone()
-        prepare_locales()
-        step9.init(args)
+def init():
+    prepare_timezone()
+    prepare_locales()
+    step9.init()
 
 
 def prepare_timezone():

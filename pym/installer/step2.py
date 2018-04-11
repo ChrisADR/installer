@@ -70,18 +70,14 @@ Then you need to mount it with:
     mount /dev/sdXy /mnt/gentoo
 """
 
-def init(args):
-    if args.tui:
-        #TODO: Launch TUI interface
-        pass
-    else:
-        prepare_disks()
-        prepare_fs()
-        mount_root()
+def init():
+    prepare_disks()
+    prepare_fs()
+    mount_root()
         
     if(oshelper.check_mnt_gentoo()):
         oshelper.print_and_wait("Great, we'll continue with step 3 in a few seconds!")
-        step3.init(args)
+        step3.init()
     else:
         oshelper.die_with_msg("Error: /mnt/gentoo not mounted, please verify.")
 

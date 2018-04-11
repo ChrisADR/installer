@@ -85,13 +85,10 @@ even if you have enhancement ideas, feel free to email me:
 Thank you :) and enjoy Gentoo!
 """
 
-def init(args):
-    if args.tui:
-        pass
-    else:
-        prepare_bootloader()
-        prepare_config()
-        prepare_finish()
+def init():
+    prepare_bootloader()
+    prepare_config()
+    prepare_finish()
 
 def prepare_bootloader():
     global welcome_msg

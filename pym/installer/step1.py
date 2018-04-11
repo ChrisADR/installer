@@ -35,24 +35,20 @@ input_msg='''\
     [e]: exit installer
 '''
 
-def init(args):
+def init():
     '''Init function begins the installation process, Here we check if
     we need to show output in TUI or CLI
     '''
-    if args.tui:
-        #TODO: Launch TUI interface
-        pass
-    else:
-        print_welcome_msg()
-        global input_msg
-        selection = input(input_msg)
-        try:
-            process_selection(selection)
-        except ConnectionError:
-            print('Cannot connect with www.gentoo.org')
-            process_problem()
+    print_welcome_msg()
+    global input_msg
+    selection = input(input_msg)
+    try:
+        process_selection(selection)
+    except ConnectionError:
+        print('Cannot connect with www.gentoo.org')
+        process_problem()
 
-        step2.init(args)
+    step2.init()
         
 def print_welcome_msg():
     global welcome_msg

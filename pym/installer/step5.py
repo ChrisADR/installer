@@ -57,16 +57,13 @@ I'll install myself inside the chroot so you'll be able to continue the tutorial
 inside the chroot.
 '''
 
-def init(args):
-    if args.tui:
-        pass
-    else:
-        prepare_ebuild_repo()
-        verify_files()
-        verify_shm()
-        prepare_mount_fs()
-        bootstrap_in_chroot()
-        step6.init(args)
+def init():
+    prepare_ebuild_repo()
+    verify_files()
+    verify_shm()
+    prepare_mount_fs()
+    bootstrap_in_chroot()
+    step6.init()
 
 def prepare_ebuild_repo():
     global welcome_msg

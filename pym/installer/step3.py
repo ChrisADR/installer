@@ -71,14 +71,11 @@ Explanation:
     --numeric-owner: keep UID and GID from tarball
 """
 
-def init(args):
-    if args.tui:
-        pass
-    else:
-        prepare_date()
-        prepare_stage3_download()
-        prepare_unpack()
-        step4.init(args)
+def init():
+    prepare_date()
+    prepare_stage3_download()
+    prepare_unpack()
+    step4.init()
 
 
 def prepare_date():

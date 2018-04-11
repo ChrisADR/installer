@@ -56,13 +56,10 @@ You may want to read the next section for other optional tools:
 https://wiki.gentoo.org/wiki/Handbook:AMD64/Installation/Tools
 """
 
-def init(args):
-    if args.tui:
-        pass
-    else:
-        prepare_host()
-        prepare_logger()
-        step11.init(args)
+def init():
+    prepare_host()
+    prepare_logger()
+    step11.init()
 
 def prepare_logger():
     global logger_msg

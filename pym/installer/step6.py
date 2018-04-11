@@ -42,11 +42,8 @@ If you created some extra partitions like home or boot, mount them:
 Finally, run `installer beginner -s 7` to continue with the installation.
 """
 
-def init(args):
-    if args.tui:
-        pass
-    else:
-        prepare_chroot()
+def init():
+    prepare_chroot()
 
 def prepare_chroot():
     global welcome_msg

@@ -41,13 +41,10 @@ Where:
     X: number of CPUs (CPU cores) plus one. Example: -j2
 '''
 
-def init(args):
-    if args.tui:
-        pass
-    else:
-        prepare_make_conf()
-        check_data_saved()
-        step5.init(args)
+def init():
+    prepare_make_conf()
+    check_data_saved()
+    step5.init()
 
 def prepare_make_conf():
     global welcome_msg

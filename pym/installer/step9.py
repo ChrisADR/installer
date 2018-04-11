@@ -60,13 +60,10 @@ https://wiki.gentoo.org/wiki/Handbook:AMD64/Installation/Kernel#Activating_requi
 https://wiki.gentoo.org/wiki/Wifi#Kernel
 """
 
-def init(args):
-    if args.tui:
-        pass
-    else:
-        prepare_kernel()
-        prepare_fstab()
-        step10.init(args)
+def init():
+    prepare_kernel()
+    prepare_fstab()
+    step10.init()
 
 def prepare_kernel():
     global welcome_msg
