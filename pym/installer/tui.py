@@ -15,9 +15,7 @@
 #You should have received a copy of the GNU General Public License v2
 #along with Installer.  If not, see <http://www.gnu.org/licenses/>.
 
-def begin(args):
-    print('now in tui begin')
+import pym.installer.curseshelper as curseshelper
 
-
-def indicate(args):
-    print('now in tui with args')
+def begin():
+    curseshelper.launch_tui()
