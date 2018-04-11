@@ -28,12 +28,10 @@ def init(args):
     @tui: wheter to launch TUI version to select step
     """
     if not args.tui:
-        if args.step != 0:
-            walkthrough.resume(args.step,args)
+        if args.step:
+            index = args.step
         else:
-            walkthrough.begin(args)
+            index = 1
+        walkthrough.begin(index)
     else:
-        if args.step != 0:
-            tui.indicate(args.step)
-        else:
-            tui.begin(args)
+        tui.begin()
