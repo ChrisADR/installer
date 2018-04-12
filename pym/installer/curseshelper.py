@@ -1,6 +1,6 @@
 #Copyright (C) Christopher Díaz Riveros <chrisadr@gentoo.org>
 #
-#begin.py is part of Installer.
+#curseshelper.py is part of Installer.
 #
 #Installer is free software: you can redistribute it and/or modify
 #it under the terms of the GNU General Public License v2 as published by

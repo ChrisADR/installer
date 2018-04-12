@@ -20,6 +20,8 @@ import sys
 import subprocess
 import time
 
+import pym.installer.config as config
+
 def clear_screen():
     os.system('/usr/bin/clear')
 
@@ -82,7 +84,7 @@ def print_and_wait(msg):
     time.sleep(5)
 
 def bootstrap_in_chroot():
-    tag='0.1.0-pre-alpha'
+    tag=config.version
     res_download = download_installer(tag)
     if res_download==0:
         res_extract = extract_installer(tag)

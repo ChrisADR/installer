@@ -1,15 +1,14 @@
 .\" Manpage for installer
 .\" Contact chrisadr@gentoo.org to correct errors or typos.
-.TH "STAGER" "1" "Dic 2017" "installer" "Installer"
+.TH "INSTALLER" "1" "Dic 2017" "installer" "Installer"
 .SH "NAME"
-installer  \- Command\-line interface to install Gentoo Linux
+installer  \- Command\-line interface software to install Gentoo Linux
 
 
 .SH "SYNOPSIS"
 
 .TP
-.BR installer
-[\fIoptions\fR] <\fIaction\fR> [\fIargs\fR] ...
+installer <\fIaction\fR> [\fIoptions\fR] ...
 
 
 .SH "DESCRIPTION"
@@ -25,8 +24,7 @@ contains all the necessary information to migrate a system.
 
 .TP
 .BR beginner
-Begins the installation and follows Gentoo Handbook on each
-required step of installation.
+Begins the installation and following the official Gentoo Handbook.
 
 .TP
 .BR generate
@@ -48,11 +46,6 @@ For example:
 	installer beginner [--help | -h]
 
 .TP
-.BR "\-\-tui (\fB-t\fR)
-Launchs installer's terminal user interface (experimental). A
-ncurses based walkthrough.
-
-.TP
 .BR "\-\-version (\fB-v\fR)
 Displays version from installer.
 
@@ -63,6 +56,12 @@ Displays version from installer.
 .BR "\-\-step (\fB-s\fR)
 Only available when <\fBaction\fR> is \fBbeginner\fR. Starts the
 guide on a determined step of installation.
+
+.TP
+.BR "\-\-tui (\fB-t\fR)
+Only available when <\fBaction\fR> is \fBbeginner\fR. Launchs 
+installer's terminal user interface (experimental). A ncurses 
+based walkthrough.
 
 .TP
 .BR "\-\-include-kernel (\fB-k\fR)
