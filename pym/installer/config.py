@@ -1,8 +1,6 @@
-#!/usr/bin/python3
-#
 #Copyright (C) Christopher Díaz Riveros <chrisadr@gentoo.org>
 #
-#setup.py is part of Installer.
+#config.py is part of Installer.
 #
 #Installer is free software: you can redistribute it and/or modify
 #it under the terms of the GNU General Public License v2 as published by
@@ -17,29 +15,14 @@
 #You should have received a copy of the GNU General Public License v2
 #along with Installer.  If not, see <http://www.gnu.org/licenses/>.
 
-from distutils.core import setup
+'''Configuration data'''
 
-import pym.installer.config as config
-
-setup(name='installer',
-    version=config.version,
-    description=config.description,
-    long_description=config.long_description,
-    author=config.author,
-    author_email=config.author_email,
-    url=config.url,
-    license=config.license,
-    packages=[
-        'pym/installer',
-        ],
-    scripts=[
-        'bin/installer',
-        ],
-    classifiers=[
-        config.development_status,
-        config.environment,
-        ],
-    data_files=[
-        ('/usr/share/man/man1/',['man/installer.1'])
-        ],
-    )
+version='0.1.0-alpha'
+development_status='Development Status :: 3 - Alpha'
+description='Gentoo Installer Prototype.'
+long_description='Gentoo Installer is a project which aims to assist in the first installation from Gentoo Linux.'
+author='Christopher Díaz Riveros'
+author_email='chrisadr@gentoo.org'
+url='https://github.com/ChrisADR/installer'
+license='GPLv2'
+environment='Environment :: Console'
