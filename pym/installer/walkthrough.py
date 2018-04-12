@@ -56,3 +56,5 @@ def begin(index):
         step10.init()
     elif index==11:
         step11.init()
+    else:
+        raise ValueError
