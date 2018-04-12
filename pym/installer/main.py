@@ -20,65 +20,61 @@ import os
 
 import pym.installer.beginner as beginner
 import pym.installer.generate as generate
+import pym.installer.config as config
 
 def main():
     try:
         check_permission()
-
-        parser = argparse.ArgumentParser(
-                description="Installer is designed to aid users to install Gentoo Linux",
-                epilog="If you find this useful or find a bug please contact to chrisadr@gentoo.org")
-
-        parser.add_argument("-v", "--version",
-                action="version",
-                version="%(prog)s 0.1.0dev")
-        
-        subparsers = parser.add_subparsers(
-                title="available subcommands",
-                description="Installer implements two ways of installing Gentoo Linux,\
-                from scratch and from an existing system.",
-                help="for specific info use installer <command> --help",
-                metavar="<command>",
-                dest="action")
-
-        beginner_parser = subparsers.add_parser("beginner",
-                help="begin a new Gentoo Linux installation")
-
-        beginner_exclusive_group = beginner_parser.add_mutually_exclusive_group()
-        beginner_exclusive_group.add_argument("-s", "--step",
-                metavar="N",
-                default=0,
-                choices=[1,2,3,4,5,6,7,8,9,10,11],
-                type=int,
-                help="begin on a specific step of installation")
-
-        beginner_exclusive_group.add_argument("-t", "--tui",
-                action="store_true",
-                dest='tui',
-                help="launch Terminal User Interface")
-
-        generate_parser = subparsers.add_parser("generate",
-                help="generate a stageX tarball from current system")
-
-        generate_parser.add_argument("-k","--include-kernel",
-                action='store_true',
-                dest='kernel',
-                help="include /usr/src/ directory in stageX")
-
+        parser = generate_parser()
         args = parser.parse_args()
-
         if args.action=="beginner":
             beginner.init(args)
         elif args.action=="generate":
             generate.init(args)
         else:
             raise ValueError()
-
     except ValueError:
         print("You need to provide an action, see installer --help or -h for more info")
     except PermissionError:
         print("You need to be root for using installer")
-        
+
+
 def check_permission():
     if os.geteuid() != 0:
         raise PermissionError()
+
+
+def generate_parser():
+    parser = argparse.ArgumentParser(
+            description=config.long_description,
+            epilog="If you find this useful or find a bug please contact to {}".format(config.author_email))
+    parser.add_argument("-v", "--version",
+            action="version",
+            version="%(prog)s {}".format(config.version))
+    subparsers = parser.add_subparsers(
+            title="available subcommands",
+            description="Installer implements two ways of installing Gentoo Linux,\
+            from scratch and from an existing system.",
+            help="for specific info use installer <command> --help",
+            metavar="<command>",
+            dest="action")
+    beginner_parser = subparsers.add_parser("beginner",
+            help="begin a new Gentoo Linux installation")
+    beginner_exclusive_group = beginner_parser.add_mutually_exclusive_group()
+    beginner_exclusive_group.add_argument("-s", "--step",
+            metavar="N",
+            default=0,
+            choices=[1,2,3,4,5,6,7,8,9,10,11],
+            type=int,
+            help="begin on a specific step of installation")
+    beginner_exclusive_group.add_argument("-t", "--tui",
+            action="store_true",
+            dest='tui',
+            help="launch Terminal User Interface")
+    generate_parser = subparsers.add_parser("generate",
+            help="generate a stageX tarball from current system")
+    generate_parser.add_argument("-k","--include-kernel",
+            action='store_true',
+            dest='kernel',
+            help="include /usr/src/ directory in stageX")
+    return parser
