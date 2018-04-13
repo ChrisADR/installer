@@ -1,0 +1,69 @@
+Installer Translations
+======================
+
+This directory contains translations for Installer. This document
+describes how to contribute to the effort of enhancing the language
+coverage and maintaining translations.
+
+This document was inspired in Git's l10n document.
+
+Creating a new language translation
+-----------------------------------
+
+First of all you need to check if the language alreade exists, you
+will see the following structure:
+
+ po/_XX_/LC_MESSAGES/installer.[pm]o
+
+where _XX_ is the language that you want to contribute to.
+
+if the directory does not exist you need to create both directories,
+
+ mkdir -p _XX_/LC_MESSAGES
+
+and after that copy the installer.pot file located in po/ to LC_MESSAGES
+with the name 'installer.po'
+
+ cp po/installer.pot po/_XX_/LC_MESSAGES/installer.po
+
+Once you are done with your translations, you need to generate the .mo
+file for your language, this is done by using `msgfmt` program. Inside
+your LC_MESSAGES directory, run the following command.
+
+ msgfmt -o installer.mo installer.po
+
+After that you should be able to test Installer in the desired new language
+after re-installing the software:
+
+ python setup.py install
+ LANG=_XX_ installer --help
+
+
+Contributing to an existing translation
+---------------------------------------
+
+If you find an already existing _XX_ directory or you are updating from a new
+installer.pot file (when new versions are released), you need to do the
+following procedure inside po/ directiory:
+
+ msgmerge --add-location --backup=off -U _XX_/LC_MESSAGES/installer.po installer.pot
+
+This will update the installer.po file inside your _XX_ language.
+
+
+Generating the .pot file (only done by the coordinator)
+-------------------------------------------------------
+
+In order to create/update the new installer.pot file you need to be located
+inside the main directory from the project, then use `xgettext` program:
+
+ xgettext -f po/translatables -d installer -o po/installer.pot -L Python \
+ --package-name=Installer --msgid-bugs-address=chrisadr@gentoo.org
+
+
+Adding strings/files for translations
+-------------------------------------
+
+If you develop Installer, you need to mark all you translatable strings without
+_("string") function. If you created a new file with translatable content, add
+your file to the list translatables located in po/
