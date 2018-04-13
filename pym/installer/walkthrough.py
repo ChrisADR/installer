@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 #Copyright (C) Christopher Díaz Riveros <chrisadr@gentoo.org>
 #
 #walkthrough.py is part of Installer.

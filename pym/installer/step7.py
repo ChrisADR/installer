@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 #Copyright (C) Christopher Díaz Riveros <chrisadr@gentoo.org>
 #
 #step7.py is part of Installer.
@@ -18,7 +19,7 @@
 import pym.installer.oshelper as oshelper
 import pym.installer.step8 as step8
 
-welcome_msg="""\
+welcome_msg=_("""\
                             Step 7 - Configuring Portage
 ================================================================================
 First of all, welcome to your new Gentoo system! Before you can start enjoying
@@ -37,9 +38,9 @@ a good idea to read the news before continue. Use:
     eselect news read
 
 Once you are done, exit the shell for the next message.
-"""
+""")
 
-profile_msg="""\
+profile_msg=_("""\
 Now you need to select a profile for building your system. you can use `eselect`
 for listing available profiles:
 
@@ -59,9 +60,9 @@ Once your are done, you need to update your system to the new profile, execute:
     emerge --ask --update --deep --newuse @world
 
 This may be a long process, please be patient. Exit the shell for the next message.
-"""
+""")
 
-make_conf_msg="""\
+make_conf_msg=_("""\
 USE flags help you to customize the building process, by default, each profile
 contains the recommended USE flags to be able to run the base system. If you
 need to add or remove some of them, it's highly suggested to read Handbook's
@@ -81,7 +82,7 @@ Edit your /etc/portage/make.conf file in order to set the desired USE flags.
 Then save your changes and update your system with:
 
     emerge --ask --update --deep --newuse @world
-"""
+""")
 
 
 def init():

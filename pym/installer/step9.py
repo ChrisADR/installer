@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 #Copyright (C) Christopher Díaz Riveros <chrisadr@gentoo.org>
 #
 #step9.py is part of Installer.
@@ -18,7 +19,7 @@
 import pym.installer.oshelper as oshelper
 import pym.installer.step10 as step10
 
-welcome_msg="""\
+welcome_msg=_("""\
                          Step 9 - Configuring the kernel
 ================================================================================
 Configuring the kernel is one of the most important tasks during installation,
@@ -37,9 +38,9 @@ After that, emerge genkernel-next:
     emerge --ask sys-kernel/genkernel-next
 
 Exit the shell for the next message.
-"""
+""")
 
-fstab_msg="""\
+fstab_msg=_("""\
 Before to begin kernel configuration and installation, you need to edit your
 /etc/fstab file because genkernel will read it to place initramfs in /boot
 partition. This is a good time to leave your /etc/fstab file ready.
@@ -58,7 +59,7 @@ use systemd, these links may help you:
 https://wiki.gentoo.org/wiki/Systemd/Installing_Gnome3_from_scratch
 https://wiki.gentoo.org/wiki/Handbook:AMD64/Installation/Kernel#Activating_required_options
 https://wiki.gentoo.org/wiki/Wifi#Kernel
-"""
+""")
 
 def init():
     prepare_kernel()

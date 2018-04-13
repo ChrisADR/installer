@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 #Copyright (C) Christopher Díaz Riveros <chrisadr@gentoo.org>
 #
 #step11.py is part of Installer.
@@ -17,7 +18,7 @@
 
 import pym.installer.oshelper as oshelper
 
-welcome_msg="""\
+welcome_msg=_("""\
                        Step 11 - Configuring the bootloader
 ================================================================================
 Last step in the list! You are about to finish the Gentoo installation process!!
@@ -39,9 +40,9 @@ Then install the bootloader with:
 WARNING: UEFI users are highly encouraged to read following section before 
 installing grub:
 https://wiki.gentoo.org/wiki/Handbook:AMD64/Installation/Bootloader#Install
-"""
+""")
 
-config_msg="""\
+config_msg=_("""\
 Now you need to configure grub, this way it'll be able to find your partitions
 and initramfs. Execute:
 
@@ -62,9 +63,9 @@ things:
 
     useradd -m -G users,wheel,audio -s /bin/bash larry
     passwd larry
-"""
+""")
 
-finish_msg="""\
+finish_msg=_("""\
 Finally, you need to exit the chroot and umount all the linked directories:
 
     umount -l /mnt/gentoo/dev{/shm,/pts,}
@@ -83,7 +84,7 @@ even if you have enhancement ideas, feel free to email me:
     chrisadr@gentoo.org
 
 Thank you :) and enjoy Gentoo!
-"""
+""")
 
 def init():
     prepare_bootloader()

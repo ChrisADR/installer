@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 #Copyright (C) Christopher Díaz Riveros <chrisadr@gentoo.org>
 #
 #curseshelper.py is part of Installer.
@@ -43,24 +44,24 @@ def prepare_curses(stdscr):
 
 def generate_title_window(stdscr):
     title_win = curses.newwin(4,curses.COLS-2,0,10)
-    title_win.addstr(1,12,"Welcome to installer TUI.")
-    title_win.addstr(3,2,"Use the arrow to select the step and press ENTER")
+    title_win.addstr(1,12,_("Welcome to installer TUI."))
+    title_win.addstr(3,2,_("Use the arrow to select the step and press ENTER"))
     title_win.refresh()
 
 def generate_info_window(stdscr):
-    info_win = curses.newwin(13,50,5,12)
+    info_win = curses.newwin(13,60,5,12)
     info_win.box()
-    info_win.addstr(1,2,"Step 1: Welcome to Gentoo installer!")
-    info_win.addstr(2,2,"Step 2: Preparing the disks")
-    info_win.addstr(3,2,"Step 3: Installing Stage3")
-    info_win.addstr(4,2,"Step 4: Configuring compile options")
-    info_win.addstr(5,2,"Step 5: Installing the Gentoo base system")
-    info_win.addstr(6,2,"Step 6: Entering the chroot")
-    info_win.addstr(7,2,"Step 7: Configuring Portage")
-    info_win.addstr(8,2,"Step 8: Configuring the system")
-    info_win.addstr(9,2,"Step 9: Configuring the kernel")
-    info_win.addstr(10,2,"Step 10: Configuring the system")
-    info_win.addstr(11,2,"Step 11: Configuring the bootloader")
+    info_win.addstr(1,2,_("Step 1: Welcome to Gentoo installer!"))
+    info_win.addstr(2,2,_("Step 2: Preparing the disks"))
+    info_win.addstr(3,2,_("Step 3: Installing Stage3"))
+    info_win.addstr(4,2,_("Step 4: Configuring compile options"))
+    info_win.addstr(5,2,_("Step 5: Installing the Gentoo base system"))
+    info_win.addstr(6,2,_("Step 6: Entering the chroot"))
+    info_win.addstr(7,2,_("Step 7: Configuring Portage"))
+    info_win.addstr(8,2,_("Step 8: Configuring the system"))
+    info_win.addstr(9,2,_("Step 9: Configuring the kernel"))
+    info_win.addstr(10,2,_("Step 10: Configuring the system"))
+    info_win.addstr(11,2,_("Step 11: Configuring the bootloader"))
     info_win.refresh()
 
 def generate_arrow_window(stdscr):

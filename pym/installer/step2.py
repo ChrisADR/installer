@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 #Copyright (C) Christopher Díaz Riveros <chrisadr@gentoo.org>
 #
 #step2.py is part of Installer.
@@ -18,7 +19,7 @@
 import pym.installer.oshelper as oshelper
 import pym.installer.step3 as step3
 
-welcome_msg="""\
+welcome_msg=_("""\
                          Step 2 - Preparing the disks
 ===============================================================================
 
@@ -38,9 +39,9 @@ find interesting the next suggestion:
 
 For more detailed info, please refer to:
 https://wiki.gentoo.org/wiki/Handbook:AMD64/Installation/Disks
-"""
+""")
 
-post_partition_msg="""\
+post_partition_msg=_("""\
 Now that you have a partition table, you need to create a filesystem on each
 partition to be able to store data. This prototype assumes that you'll create
 ext4 filesystems, some useful commands include:
@@ -57,9 +58,9 @@ To be able to create a swap partition, you can use:
 
 For more detailed info please refer to:
 https://wiki.gentoo.org/wiki/Handbook:AMD64/Installation/Disks#Creating_file_systems
-"""
+""")
 
-mounting_root_msg="""\
+mounting_root_msg=_("""\
 Finally, we need you to mount your root partition (/) into /mnt/gentoo. If you
 don't have a /mnt/gentoo directory, you can create one with:
 
@@ -68,7 +69,7 @@ don't have a /mnt/gentoo directory, you can create one with:
 Then you need to mount it with:
 
     mount /dev/sdXy /mnt/gentoo
-"""
+""")
 
 def init():
     prepare_disks()
@@ -76,10 +77,10 @@ def init():
     mount_root()
         
     if(oshelper.check_mnt_gentoo()):
-        oshelper.print_and_wait("Great, we'll continue with step 3 in a few seconds!")
+        oshelper.print_and_wait(_("Great, we'll continue with step 3 in a few seconds!"))
         step3.init()
     else:
-        oshelper.die_with_msg("Error: /mnt/gentoo not mounted, please verify.")
+        oshelper.die_with_msg(_("Error: /mnt/gentoo not mounted, please verify."))
 
 
 def prepare_disks():

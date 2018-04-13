@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 #Copyright (C) Christopher Díaz Riveros <chrisadr@gentoo.org>
 #
 #step6.py is part of Installer.
@@ -18,7 +19,7 @@
 import pym.installer.oshelper as oshelper
 import pym.installer.step7 as step7
 
-welcome_msg="""\
+welcome_msg=_("""\
                             Step 6 - Entering the chroot
 ================================================================================
 Congratulations!! Your are about to enter into your brand new Gentoo system.
@@ -40,7 +41,7 @@ If you created some extra partitions like home or boot, mount them:
     mount /dev/sdXy /{boot,home}
 
 Finally, run `installer beginner -s 7` to continue with the installation.
-"""
+""")
 
 def init():
     prepare_chroot()

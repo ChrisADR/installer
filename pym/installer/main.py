@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 #Copyright (C) Christopher Díaz Riveros <chrisadr@gentoo.org>
 #
 #main.py is part of installer.
@@ -34,9 +35,9 @@ def main():
         else:
             raise ValueError()
     except ValueError:
-        print("You need to provide an action, see installer --help or -h for more info")
+        print(_("You need to provide an action, see installer --help or -h for more info"))
     except PermissionError:
-        print("You need to be root for using installer")
+        print(_("You need to be root for using installer"))
 
 
 def check_permission():
@@ -47,34 +48,34 @@ def check_permission():
 def generate_parser():
     parser = argparse.ArgumentParser(
             description=config.long_description,
-            epilog="If you find this useful or find a bug please contact to {}".format(config.author_email))
+            epilog=_("If you find this useful or find a bug please contact to: {}").format(config.author_email))
     parser.add_argument("-v", "--version",
             action="version",
             version="%(prog)s {}".format(config.version))
     subparsers = parser.add_subparsers(
-            title="available subcommands",
-            description="Installer implements two ways of installing Gentoo Linux,\
-            from scratch and from an existing system.",
-            help="for specific info use installer <command> --help",
-            metavar="<command>",
+            title=_("available subcommands"),
+            description=_("Installer implements two ways of installing Gentoo Linux,\
+            from scratch and from an existing system."),
+            help=_("for specific info use installer <command> --help"),
+            metavar=_("<command>"),
             dest="action")
     beginner_parser = subparsers.add_parser("beginner",
-            help="begin a new Gentoo Linux installation")
+            help=_("begin a new Gentoo Linux installation"))
     beginner_exclusive_group = beginner_parser.add_mutually_exclusive_group()
     beginner_exclusive_group.add_argument("-s", "--step",
             metavar="N",
             default=0,
             choices=[1,2,3,4,5,6,7,8,9,10,11],
             type=int,
-            help="begin on a specific step of installation")
+            help=_("begin on a specific step of installation"))
     beginner_exclusive_group.add_argument("-t", "--tui",
             action="store_true",
             dest='tui',
-            help="launch Terminal User Interface")
+            help=_("launch Terminal User Interface"))
     generate_parser = subparsers.add_parser("generate",
-            help="generate a stageX tarball from current system")
+            help=_("generate a stageX tarball from current system"))
     generate_parser.add_argument("-k","--include-kernel",
             action='store_true',
             dest='kernel',
-            help="include /usr/src/ directory in stageX")
+            help=_("include /usr/src/ directory in stageX"))
     return parser

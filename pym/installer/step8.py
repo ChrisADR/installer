@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 #Copyright (C) Christopher Díaz Riveros <chrisadr@gentoo.org>
 #
 #step8.py is part of Installer.
@@ -18,7 +19,7 @@
 import pym.installer.oshelper as oshelper
 import pym.installer.step9 as step9
 
-welcome_msg="""\
+welcome_msg=_("""\
                          Step 8 - Configuring the system
 ================================================================================
 Now we need to configure some system-wide settings, first of all timezone. Run:
@@ -37,9 +38,9 @@ Once you are finish, please execute:
     emerge --config sys-libs/timezone-data
 
 This will reconfigure timezone-data package and update /etc/localtime
-"""
+""")
 
-locales_msg="""\
+locales_msg=_("""\
 Now you need to set your locales, for that you'll have to edit /etc/locale.gen:
     
     nano -w /etc/locale.gen
@@ -61,7 +62,7 @@ reload the environment:
     eselect locale list
     eselect locale set <number>
     env-update && source /etc/profile && export PS1="(chroot) $PS1"
-"""
+""")
 
 def init():
     prepare_timezone()

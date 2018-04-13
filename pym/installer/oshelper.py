@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 #Copyright (C) Christopher Díaz Riveros <chrisadr@gentoo.org>
 #
 #oshelper.py is part of Installer.
@@ -26,19 +27,19 @@ def clear_screen():
     os.system('/usr/bin/clear')
 
 def open_shell():
-    print("I'm going to open a new terminal inside installer,you need to exit with 'exit'")
+    print(_("I'm going to open a new terminal inside installer,you need to exit with 'exit'"))
     res = subprocess.call('/bin/bash')
     if res!=0:
         raise ChildProcessError()
 
 def open_chroot():
-    print("Chrooting into the new Gentoo system, use `exit` to exit")
+    print(_("Chrooting into the new Gentoo system, use `exit` to exit"))
     res = subprocess.call(['/bin/chroot','/mnt/gentoo','/bin/bash'])
     if res!=0:
         raise ChildProcessError()
 
 def handle_error():
-    print('Something went wrong with the terminal, please verify it.')
+    print(_('Something went wrong with the terminal, please verify it.'))
     sys.exit(1)
 
 def die_with_msg(msg):
@@ -110,7 +111,7 @@ def test_connection(host):
 
 def finish_prototype(msg):
     print(msg)
-    print('Thank you for trying installer')
+    print(_('Thank you for trying installer'))
     sys.exit(0)
 
 def check_repos_conf_dir():

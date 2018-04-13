@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 #Copyright (C) Christopher Díaz Riveros <chrisadr@gentoo.org>
 #
 #step4.py is part of Installer.
@@ -18,7 +19,7 @@
 import pym.installer.oshelper as oshelper
 import pym.installer.step5 as step5
 
-welcome_msg='''\
+welcome_msg=_('''\
                         Step 4 - Configuring compile options
 ===============================================================================
 Now we need to prepare Portage for the first update. All the env variables used
@@ -39,7 +40,7 @@ Explanation:
     MAKEOPTS="-jX"
 Where:
     X: number of CPUs (CPU cores) plus one. Example: -j2
-'''
+''')
 
 def init():
     prepare_make_conf()
@@ -52,7 +53,7 @@ def prepare_make_conf():
     
 def check_data_saved():
     if oshelper.check_makeconf_march():
-        oshelper.print_and_wait("Great! Now we can start Step 5")
+        oshelper.print_and_wait(_("Great! Now we can start Step 5"))
     else:
-        oshelper.show_msg_open_shell("Please review your make.conf file, something is wrong")
+        oshelper.show_msg_open_shell(_("Please review your make.conf file, something is wrong"))
         check_data_saved()

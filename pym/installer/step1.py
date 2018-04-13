@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 #Copyright (C) Christopher Díaz Riveros <chrisadr@gentoo.org>
 #
 #step1.py is part of Installer.
@@ -18,7 +19,7 @@
 import pym.installer.step2 as step2
 import pym.installer.oshelper as oshelper
 
-welcome_msg='''\
+welcome_msg=_('''\
                         Welcome to Gentoo installer!
 ===============================================================================
 Before begin we need to make sure that you reach www.gentoo.org to be able to
@@ -27,13 +28,13 @@ download stage3 tarball. You can check with:
     ping -c 2 www.gentoo.org
 
 Otherwhise I can try to do it for you. Please type one of these options:
-'''
+''')
 
-input_msg='''\
+input_msg=_('''\
     [a]: try automatically
     [s]: spawn a shell to do it manually
     [e]: exit installer
-'''
+''')
 
 def init():
     '''Init function begins the installation process, Here we check if
@@ -45,7 +46,7 @@ def init():
     try:
         process_selection(selection)
     except ConnectionError:
-        print('Cannot connect with www.gentoo.org')
+        print(_('Cannot connect with www.gentoo.org'))
         process_problem()
 
     step2.init()
@@ -62,18 +63,18 @@ def process_selection(selection):
         try:
             oshelper.open_shell()
         except ChildProcessError:
-            oshelper.die_with_msg('Error: something happended to your shell, please verify it.')
+            oshelper.die_with_msg(_('Error: something happended to your shell, please verify it.'))
         test = test_connectivity()
         process_connectivity(test)
     elif selection=='e':
-        oshelper.finish_prototype('Bye')
+        oshelper.finish_prototype(_('Bye'))
     else:
-        selection = input('Not valid option. Select [a],[s] or [e]')
+        selection = input(_('Not valid option. Select [a],[s] or [e]'))
         process_selection(selection)
 
 
 def test_connectivity():
-    print('Verifying connectivity with www.gentoo.org...')
+    print(_('Verifying connectivity with www.gentoo.org...'))
     response = oshelper.test_connection('www.gentoo.org')
     if response==0:
         return True
@@ -83,11 +84,10 @@ def test_connectivity():
 
 def process_connectivity(test):
     if test:
-        oshelper.print_and_wait('We have connection!Now you can proceed to step 2')
+        oshelper.print_and_wait(_('We have connection!Now you can proceed to step 2'))
     else:
         raise ConnectionError()
 
 def process_problem():
-    oshelper.finish_prototype("This prototype was not capable to resolve the issue, please refer \n\
-to Gentoo Handbook, section 'Configuring the network', for more info.")
-
+    oshelper.finish_prototype(_("This prototype was not capable to resolve the issue, please refer \n\
+to Gentoo Handbook, section 'Configuring the network', for more info."))

@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 #Copyright (C) Christopher Díaz Riveros <chrisadr@gentoo.org>
 #
 #step3.py is part of Installer.
@@ -18,7 +19,7 @@
 import pym.installer.oshelper as oshelper
 import pym.installer.step4 as step4
 
-welcome_msg="""\
+welcome_msg=_("""\
                             Step 3 - Installing Stage3
 ===============================================================================
 
@@ -33,9 +34,9 @@ you can set it manually with the `date` command itself.
 
 For more detailed info, please refer to:
 https://wiki.gentoo.org/wiki/Handbook:AMD64/Installation/Stage
-"""
+""")
 
-stage3_download_msg="""\
+stage3_download_msg=_("""\
 Now you need the download a stage3 tarball. Stage3 contains all the required
 data to be able to build your system. Check the next URL for a mirror list:
 
@@ -55,9 +56,9 @@ the stage3 tarball.
 
 More information about validation and verification please refer to:
 https://wiki.gentoo.org/wiki/Handbook:AMD64/Installation/Stage#Verifying_and_validating
-"""
+""")
 
-unpack_msg="""\
+unpack_msg=_("""\
 Now that stage3 is located in /mnt/gentoo you can unpack the contents. Please
 use the exact command:
 
@@ -69,7 +70,7 @@ Explanation:
     f: stands for file
     --xattrs-include='*.*': preserves extended attributes
     --numeric-owner: keep UID and GID from tarball
-"""
+""")
 
 def init():
     prepare_date()

@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 #Copyright (C) Christopher Díaz Riveros <chrisadr@gentoo.org>
 #
 #step5.py is part of Installer.
@@ -18,7 +19,7 @@
 import pym.installer.oshelper as oshelper
 import pym.installer.step6 as step6
 
-welcome_msg='''\
+welcome_msg=_('''\
                     Step 5 - Installing the Gentoo base system
 ================================================================================
 If you are using a Official Gentoo Installation media, you may want to select a
@@ -39,9 +40,9 @@ the newly created repos.conf directory:
 Finally, copy the DNS info before entering the new environment:
 
     cp --deference /etc/resolv.conf /mnt/gentoo/etc
-'''
+''')
 
-prepare_mount_msg='''\
+prepare_mount_msg=_('''\
 Before to enter the brand new Gentoo system, you need to mount certain
 filesystems to be capable to change the Linux root. Use the following commands:
 
@@ -55,7 +56,7 @@ Note: --make-rslave is needed for systemd support later in installation.
 
 I'll install myself inside the chroot so you'll be able to continue the tutorial
 inside the chroot.
-'''
+''')
 
 def init():
     prepare_ebuild_repo()
@@ -74,14 +75,14 @@ def prepare_mount_fs():
     oshelper.show_msg_open_shell(prepare_mount_msg)
 
 def bootstrap_in_chroot():
-    installing_msg='''\
+    installing_msg=_('''\
 Downloading and installing in the chroot, please wait
-'''
+''')
     oshelper.show_msg(installing_msg)
     try:
         oshelper.bootstrap_in_chroot()
     except ChildProcessError:
-        err_msg='''\
+        err_msg=_('''\
 I had problems to download/extract/install in the chroot, please do
 it manually:
 
@@ -89,18 +90,18 @@ it manually:
     tar xf /tmp/<desired_release>.tar.gz -C /tmp
     cd /tmp/<extracted_dir>
     python setup.py install --prefix=/mnt/gentoo/usr
-'''
+''')
         oshelper.show_msg_open_shell(err_msg)
 
 def verify_shm():
     if oshelper.check_shm():
-        err_msg="""\
+        err_msg=_("""\
 Your /dev/shm directory is a symbolic link, please run:
     rm /dev/shm && mkdif /dev/shm
     mount --types tmpfs --options nosuid,nodev,noexec shm /dev/shm
 Also ensure that mode 1777 is set:
     chmod 1777 /dev/shm
-"""
+""")
         oshelper.show_msg_open_shell(err_msg)
         verify_shm()
 
@@ -108,15 +109,15 @@ def verify_files():
     if oshelper.check_repos_conf_dir():
         pass
     else:
-        oshelper.show_msg_open_shell("Please review your repos.conf directory, something is wrong")
+        oshelper.show_msg_open_shell(_("Please review your repos.conf directory, something is wrong"))
         verify_files()
     if oshelper.check_gentoo_conf_repo():
         pass
     else:
-        oshelper.show_msg_open_shell("Please review your gentoo.conf file, something is wrong")
+        oshelper.show_msg_open_shell(_("Please review your gentoo.conf file, something is wrong"))
         verify_files()
     if oshelper.check_resolv_conf():
         pass
     else:
-        oshelper.show_msg_open_shell("Please review your resolv.conf file, something is wrong")
+        oshelper.show_msg_open_shell(_("Please review your resolv.conf file, something is wrong"))
         verify_files()

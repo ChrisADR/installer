@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 #Copyright (C) Christopher Díaz Riveros <chrisadr@gentoo.org>
 #
 #generate.py is part of Installer.
@@ -17,7 +18,7 @@
 
 import pym.installer.oshelper as oshelper
 
-welcome_msg="""\
+welcome_msg=_("""\
                             Welcome to generate command
 ================================================================================
 I'll prepare a stageX tarball, after extracting a regular stage3 tarball during
@@ -37,7 +38,7 @@ Once you extract stageX tarball you'll still need to:
     Update your /etc/fstab file
     Configure your kenrel.
     Configure your bootloader.
-"""
+""")
 
 def init(args):
     prepare_generate()

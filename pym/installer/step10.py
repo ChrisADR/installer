@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 #Copyright (C) Christopher Díaz Riveros <chrisadr@gentoo.org>
 #
 #step10.py is part of Installer.
@@ -18,7 +19,7 @@
 import pym.installer.oshelper as oshelper
 import pym.installer.step11 as step11
 
-welcome_msg="""\
+welcome_msg=_("""\
                          Step 10 - Configuring the system
 ================================================================================
 We are almost there, now you need to set the root password, execute:
@@ -41,9 +42,9 @@ not come with the base stage3 tarball, specially networking related software:
 If you need more detailed info, refer to:
 
 https://wiki.gentoo.org/wiki/Handbook:AMD64/Full/Networking
-"""
+""")
 
-logger_msg="""\
+logger_msg=_("""\
 If you are not using systemd as your init system, you need to install a logger:
 (You only need ONE from these)
  
@@ -54,7 +55,7 @@ If you are not using systemd as your init system, you need to install a logger:
 You may want to read the next section for other optional tools:
 
 https://wiki.gentoo.org/wiki/Handbook:AMD64/Installation/Tools
-"""
+""")
 
 def init():
     prepare_host()
