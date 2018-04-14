@@ -33,6 +33,14 @@ installer will depend on these packages and libraries:
 * GNU grep (runtime)
 * Ncurses (runtime)
 
+## Installation
+
+You can install installer with setup.py:
+
+```
+python setup.py install
+```
+
 ## Contribution
 
 Any kind of contribution/suggestion/question/answer is welcome, so please feel free to create an Issue or even a Pull Request and I'll try to answer as soon as possible.
