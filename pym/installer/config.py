@@ -21,7 +21,7 @@
 version='0.1.0-alpha'
 development_status='Development Status :: 3 - Alpha'
 description='Gentoo Installer Prototype.'
-long_description='Installer is designed to aid users to install Gentoo Linux.'
+long_description=_('Installer is designed to aid users to install Gentoo Linux.')
 author='Christopher Díaz Riveros'
 author_email='chrisadr@gentoo.org'
 url='https://github.com/ChrisADR/installer'
