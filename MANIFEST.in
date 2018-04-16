@@ -1,5 +1,4 @@
 #docs
-include CONTRIBUTE
+include CONTRIBUTING.md
 include LICENSE
 include README.md
-include COPYING
