@@ -18,4 +18,4 @@
 
 import gettext
 
-gettext.install('installer','po')
+gettext.install('installer')
