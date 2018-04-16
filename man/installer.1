@@ -17,7 +17,7 @@ installer <\fIaction\fR> [\fIoptions\fR] ...
 to aid users to install Gentoo Linux. \fBInstaller\fR provides
 an interactive walkthrough on the installation process.
 \fBInstaller\fR can also create a \fIstageX\fR tarball which
-contains all the necessary information to migrate a system.
+contains some of the necessary information to migrate a system.
 
 
 .SH "ACTIONS"
@@ -31,6 +31,11 @@ Begins the installation and following the official Gentoo Handbook.
 Generates a \fIstageX\fR tarball which contains a default
 set of files that help in Gentoo migration process. These
 files are configurations files that aid in new installations.
+
+.TP
+.BR cleanup
+When used in the liveusb installation media, it searchs for 
+installer files inside /mnt/gentoo/, then removes them.
 
 
 .SH "OPTIONS"
