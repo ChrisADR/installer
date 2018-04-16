@@ -75,12 +75,9 @@ def init():
     prepare_disks()
     prepare_fs()
     mount_root()
-        
-    if(oshelper.check_mnt_gentoo()):
-        oshelper.print_and_wait(_("Great, we'll continue with step 3 in a few seconds!"))
-        step3.init()
-    else:
-        oshelper.die_with_msg(_("Error: /mnt/gentoo not mounted, please verify."))
+    verify_root()
+    oshelper.print_and_wait(_("Great, we'll continue with step 3 in a few seconds!"))
+    step3.init()
 
 
 def prepare_disks():
@@ -94,3 +91,6 @@ def prepare_fs():
 def mount_root():
     global mounting_root_msg
     oshelper.show_msg_open_shell(mounting_root_msg)
+
+def verify_root():
+    oshelper.verify_root()

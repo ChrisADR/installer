@@ -62,7 +62,7 @@ unpack_msg=_("""\
 Now that stage3 is located in /mnt/gentoo you can unpack the contents. Please
 use the exact command:
 
-    tar xpf stage3-*.tar.{bz2,xz} --xattrs-include='*.*' --numeric-owner
+    tar xpf stage3-*.tar.xz --xattrs-include='*.*' --numeric-owner
 
 Explanation:
     x: stands for extract
@@ -73,6 +73,7 @@ Explanation:
 """)
 
 def init():
+    verify_mounts()
     prepare_date()
     prepare_stage3_download()
     prepare_unpack()
@@ -90,3 +91,6 @@ def prepare_stage3_download():
 def prepare_unpack():
     global unpack_msg
     oshelper.show_msg_open_shell(unpack_msg)
+
+def verify_mounts():
+    oshelper.verify_root()

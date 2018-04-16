@@ -39,7 +39,7 @@ the newly created repos.conf directory:
 
 Finally, copy the DNS info before entering the new environment:
 
-    cp --deference /etc/resolv.conf /mnt/gentoo/etc
+    cp --dereference /etc/resolv.conf /mnt/gentoo/etc
 ''')
 
 prepare_mount_msg=_('''\
@@ -55,10 +55,11 @@ filesystems to be capable to change the Linux root. Use the following commands:
 Note: --make-rslave is needed for systemd support later in installation.
 
 I'll install myself inside the chroot so you'll be able to continue the tutorial
-inside the chroot.
+directly.
 ''')
 
 def init():
+    verify_mounts()
     prepare_ebuild_repo()
     verify_files()
     verify_shm()
@@ -83,13 +84,25 @@ Downloading and installing in the chroot, please wait
         oshelper.bootstrap_in_chroot()
     except ChildProcessError:
         err_msg=_('''\
-I had problems to download/extract/install in the chroot, please do
+I had problems to extract/install in the chroot, please do
 it manually:
 
     wget -qP /tmp https://github.com/ChrisADR/installer/releases/<desired_release>.tar.gz
     tar xf /tmp/<desired_release>.tar.gz -C /tmp
     cd /tmp/<extracted_dir>
     python setup.py install --prefix=/mnt/gentoo/usr
+    python setup.py install_data --root=/mnt/gentoo
+''')
+        oshelper.show_msg_open_shell(err_msg)
+    except ConnectionError:
+        err_msg=_('''\
+I couldn't download installer, please download it manually:
+
+    wget -qP /tmp https://github.com/ChrisADR/installer/releases/<desired_release>.tar.gz
+    tar xf /tmp/<desired_release>.tar.gz -C /tmp
+    cd /tmp/<extracted_dir>
+    python setup.py install --prefix=/mnt/gentoo/usr
+    python setup.py install_data --root=/mnt/gentoo
 ''')
         oshelper.show_msg_open_shell(err_msg)
 
@@ -121,3 +134,6 @@ def verify_files():
     else:
         oshelper.show_msg_open_shell(_("Please review your resolv.conf file, something is wrong"))
         verify_files()
+
+def verify_mounts():
+    oshelper.verify_root()

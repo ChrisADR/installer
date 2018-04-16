@@ -43,6 +43,7 @@ Where:
 ''')
 
 def init():
+    verify_mounts()
     prepare_make_conf()
     check_data_saved()
     step5.init()
@@ -57,3 +58,6 @@ def check_data_saved():
     else:
         oshelper.show_msg_open_shell(_("Please review your make.conf file, something is wrong"))
         check_data_saved()
+
+def verify_mounts():
+    oshelper.verify_root()

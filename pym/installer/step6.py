@@ -44,8 +44,15 @@ Finally, run `installer beginner -s 7` to continue with the installation.
 """)
 
 def init():
+    verify_mounts()
     prepare_chroot()
 
 def prepare_chroot():
     global welcome_msg
     oshelper.show_msg_open_chroot(welcome_msg)
+
+def verify_mounts():
+    oshelper.verify_root()
+    oshelper.verify_proc()
+    oshelper.verify_sys()
+    oshelper.verify_dev()
