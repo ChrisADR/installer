@@ -21,6 +21,7 @@ import os
 
 import pym.installer.beginner as beginner
 import pym.installer.generate as generate
+import pym.installer.cleanup as cleanup
 import pym.installer.config as config
 
 def main():
@@ -32,6 +33,8 @@ def main():
             beginner.init(args)
         elif args.action=="generate":
             generate.init(args)
+        elif args.action=="cleanup":
+            cleanup.init(args)
         else:
             raise ValueError()
     except ValueError:
@@ -78,4 +81,6 @@ def generate_parser():
             action='store_true',
             dest='kernel',
             help=_("include /usr/src/ directory in stageX"))
+    cleanup_parser = subparsers.add_parser("cleanup",
+            help=_("clean installer from /mnt/gentoo"))
     return parser
