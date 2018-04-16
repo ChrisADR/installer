@@ -40,6 +40,7 @@ setup(name='installer',
         config.environment,
         ],
     data_files=[
-        ('/usr/share/man/man1/',['man/installer.1'])
+        ('/usr/share/man/man1/',['man/installer.1']),
+        ('/usr/share/locale/es/LC_MESSAGES/',['po/es/LC_MESSAGES/installer.mo']),
         ],
     )
