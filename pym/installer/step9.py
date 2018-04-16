@@ -55,7 +55,6 @@ are finish, save your changes and execute:
 This will prompt a interactive menu where you have to enable your desired
 options, usually default is ok, but if you need some extra info, or you want to
 use systemd, these links may help you:
-
 https://wiki.gentoo.org/wiki/Systemd/Installing_Gnome3_from_scratch
 https://wiki.gentoo.org/wiki/Handbook:AMD64/Installation/Kernel#Activating_required_options
 https://wiki.gentoo.org/wiki/Wifi#Kernel

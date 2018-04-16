@@ -71,7 +71,6 @@ section:
 https://wiki.gentoo.org/wiki/Handbook:AMD64/Full/Working
 
 Specially:
-
 https://wiki.gentoo.org/wiki/Handbook:AMD64/Full/Working#When_Portage_is_complaining
 https://wiki.gentoo.org/wiki/Handbook:AMD64/Full/Working#Using_USE_flags
 

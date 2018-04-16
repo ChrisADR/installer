@@ -27,6 +27,9 @@ download stage3 tarball. You can check with:
 
     ping -c 2 www.gentoo.org
 
+For more detailed information refer to:
+https://wiki.gentoo.org/wiki/Handbook:AMD64/Installation/Networking
+
 Otherwhise I can try to do it for you. Please type one of these options:
 ''')
 

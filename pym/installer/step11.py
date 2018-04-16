@@ -66,6 +66,10 @@ things:
 """)
 
 finish_msg=_("""\
+To clean installer from your new Gentoo system, execute:
+
+    installer cleanup
+
 Finally, you need to exit the chroot and umount all the linked directories:
 
     umount -l /mnt/gentoo/dev{/shm,/pts,}

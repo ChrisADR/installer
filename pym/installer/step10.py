@@ -40,7 +40,6 @@ not come with the base stage3 tarball, specially networking related software:
     emerge --ask net-wireless/iw net-wireless/wpa_supplicant
 
 If you need more detailed info, refer to:
-
 https://wiki.gentoo.org/wiki/Handbook:AMD64/Full/Networking
 """)
 
@@ -53,7 +52,6 @@ If you are not using systemd as your init system, you need to install a logger:
     emerge --ask app-admin/metalog
 
 You may want to read the next section for other optional tools:
-
 https://wiki.gentoo.org/wiki/Handbook:AMD64/Installation/Tools
 """)
 
