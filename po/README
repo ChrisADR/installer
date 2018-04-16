@@ -67,3 +67,11 @@ Adding strings/files for translations
 If you develop Installer, you need to mark all you translatable strings without
 _("string") function. If you created a new file with translatable content, add
 your file to the list translatables located in po/
+
+Installing .mo file in system
+-----------------------------
+
+In order to be able to find the correct translation is necessary to add the .mo
+file into the data_files section from setup.py:
+
+('<final location of mo file>' , ['project location from .mo file'])
