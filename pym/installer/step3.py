@@ -21,7 +21,7 @@ import pym.installer.step4 as step4
 
 welcome_msg=_("""\
                             Step 3 - Installing Stage3
-===============================================================================
+================================================================================
 
 Before to be able to download a stage3 tarball, you need to check wheter your
 date and time is correct, not doing so could produce unexpected results or it

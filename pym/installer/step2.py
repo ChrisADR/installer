@@ -21,7 +21,7 @@ import pym.installer.step3 as step3
 
 welcome_msg=_("""\
                          Step 2 - Preparing the disks
-===============================================================================
+================================================================================
 
 Now we are going to prepare your block device and make a partition table to be
 able to store your filesystems, you have two options:

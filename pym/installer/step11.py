@@ -66,17 +66,17 @@ things:
 """)
 
 finish_msg=_("""\
-To clean installer from your new Gentoo system, execute:
+To clean installer from your new Gentoo system; exit the chroot with 'exit',
+then execute:
 
     installer cleanup
 
-Finally, you need to exit the chroot and umount all the linked directories:
+Finally, you need to umount all the linked directories:
 
     umount -l /mnt/gentoo/dev{/shm,/pts,}
     umount -R /mnt/gentoo
 
-We highly recommend you to read these sections to be able to work with Gentoo
-and Portage:
+We recommend you to read these sections to work with Gentoo and Portage:
 
 https://wiki.gentoo.org/wiki/Handbook:AMD64/Full/Working
 https://wiki.gentoo.org/wiki/Handbook:AMD64/Full/Portage

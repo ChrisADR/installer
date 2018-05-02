@@ -36,8 +36,6 @@ a good idea to read the news before continue. Use:
 
     eselect news list
     eselect news read
-
-Once you are done, exit the shell for the next message.
 """)
 
 profile_msg=_("""\
@@ -59,7 +57,7 @@ Once your are done, you need to update your system to the new profile, execute:
 
     emerge --ask --update --deep --newuse @world
 
-This may be a long process, please be patient. Exit the shell for the next message.
+This may be a long process, please be patient.
 """)
 
 make_conf_msg=_("""\

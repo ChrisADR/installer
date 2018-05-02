@@ -21,7 +21,7 @@ import pym.installer.step5 as step5
 
 welcome_msg=_('''\
                         Step 4 - Configuring compile options
-===============================================================================
+================================================================================
 Now we need to prepare Portage for the first update. All the env variables used
 by Portage are written in /mnt/gentoo/etc/portage/make.conf,for a more detailed
 list of all possible variables, refer to:
@@ -56,7 +56,7 @@ def check_data_saved():
     if oshelper.check_makeconf_march():
         oshelper.print_and_wait(_("Great! Now we can start Step 5"))
     else:
-        oshelper.show_msg_open_shell(_("Please review your make.conf file, something is wrong"))
+        oshelper.show_msg_open_shell(_("Please review your make.conf file, something is wrong,\n you can resume with 'installer beginner -s 4' once you fixed it."))
         check_data_saved()
 
 def verify_mounts():

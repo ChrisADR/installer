@@ -36,8 +36,6 @@ extra driver for a wifi card) download linux-firmware too.
 After that, emerge genkernel-next:
 
     emerge --ask sys-kernel/genkernel-next
-
-Exit the shell for the next message.
 """)
 
 fstab_msg=_("""\

@@ -122,17 +122,17 @@ def verify_files():
     if oshelper.check_repos_conf_dir():
         pass
     else:
-        oshelper.show_msg_open_shell(_("Please review your repos.conf directory, something is wrong"))
+        oshelper.show_msg_open_shell(_("Please review your repos.conf directory, something is wrong\nIf you need the text again, run 'installer beginner -s 5'"))
         verify_files()
     if oshelper.check_gentoo_conf_repo():
         pass
     else:
-        oshelper.show_msg_open_shell(_("Please review your gentoo.conf file, something is wrong"))
+        oshelper.show_msg_open_shell(_("Please review your gentoo.conf file, something is wrong\nIf you need the text again, run 'installer beginner -s 5'"))
         verify_files()
     if oshelper.check_resolv_conf():
         pass
     else:
-        oshelper.show_msg_open_shell(_("Please review your resolv.conf file, something is wrong"))
+        oshelper.show_msg_open_shell(_("Please review your resolv.conf file, something is wrong\nIf you need the text again, run 'installer beginner -s 5'"))
         verify_files()
 
 def verify_mounts():

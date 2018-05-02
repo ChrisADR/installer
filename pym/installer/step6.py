@@ -23,16 +23,15 @@ welcome_msg=_("""\
                             Step 6 - Entering the chroot
 ================================================================================
 Congratulations!! Your are about to enter into your brand new Gentoo system.
-Please keep in mind that if you are at this point, you should check that all
-the necessary filesystems are linked (step 5) and if for some reason something
-goes wrong, you can resume from here (in most cases and if you don't need to
-change your partition table or filesystems and still have internet connection).
+Please keep in mind that you need to have /mnt/gentoo mounted and /proc /sys
+/dev linked (step 5) and most likely if something goes wrong, you can resume
+from here (in most cases and if you don't need to change your partition table
+or filesystems and still have internet connection).
 
-I'll execute the following command, and after that you'll need to execute the
-following two:
+The first command will be executed, after that you'll need to execute:
 
-    chroot /mnt/gentoo /bin/bash
-    source /etc/profile         #(this will set all the ENV variables)
+    chroot /mnt/gentoo /bin/bash #DO NOT USE THIS
+    source /etc/profile          #(this will set all the ENV variables)
     export PS1="(chroot) $PS1"   #(this will help you to recognize the terminal)
 
 If you created some extra partitions like home or boot, mount them: 
