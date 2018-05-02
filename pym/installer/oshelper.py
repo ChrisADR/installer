@@ -27,7 +27,7 @@ def clear_screen():
     os.system('/usr/bin/clear')
 
 def open_shell():
-    print(_("Opening new terminal inside installer, use 'exit' to close and show next message"))
+    print(_("Opening new shell inside installer, use 'exit' to close and show next message:"))
     res = subprocess.call('/bin/bash')
     if res!=0:
         raise ChildProcessError()
