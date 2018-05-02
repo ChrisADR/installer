@@ -21,7 +21,7 @@ import pym.installer.oshelper as oshelper
 
 welcome_msg=_('''\
                         Welcome to Gentoo installer!
-===============================================================================
+================================================================================
 Before begin we need to make sure that you reach www.gentoo.org to be able to
 download stage3 tarball. You can check with: 
 
@@ -29,51 +29,20 @@ download stage3 tarball. You can check with:
 
 For more detailed information refer to:
 https://wiki.gentoo.org/wiki/Handbook:AMD64/Installation/Networking
-
-Otherwhise I can try to do it for you. Please type one of these options:
 ''')
 
-input_msg=_('''\
-    [a]: try automatically
-    [s]: spawn a shell to do it manually
-    [e]: exit installer
-''')
 
 def init():
     '''Init function begins the installation process, Here we check if
     we need to show output in TUI or CLI
     '''
     print_welcome_msg()
-    global input_msg
-    selection = input(input_msg)
-    try:
-        process_selection(selection)
-    except ConnectionError:
-        print(_('Cannot connect with www.gentoo.org'))
-        process_problem()
-
+    process_connectivity(test_connectivity())
     step2.init()
         
 def print_welcome_msg():
     global welcome_msg
-    oshelper.show_msg(welcome_msg)
-
-def process_selection(selection):
-    if selection=='a':
-        test = test_connectivity()
-        process_connectivity(test)
-    elif selection=='s':
-        try:
-            oshelper.open_shell()
-        except ChildProcessError:
-            oshelper.die_with_msg(_('Error: something happended to your shell, please verify it.'))
-        test = test_connectivity()
-        process_connectivity(test)
-    elif selection=='e':
-        oshelper.finish_prototype(_('Bye'))
-    else:
-        selection = input(_('Not valid option. Select [a],[s] or [e]'))
-        process_selection(selection)
+    oshelper.show_msg_open_shell(welcome_msg)
 
 
 def test_connectivity():
@@ -89,7 +58,7 @@ def process_connectivity(test):
     if test:
         oshelper.print_and_wait(_('We have connection!Now you can proceed to step 2'))
     else:
-        raise ConnectionError()
+        process_problem()
 
 def process_problem():
     oshelper.finish_prototype(_("This prototype was not capable to resolve the issue, please refer \n\
