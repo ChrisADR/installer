@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Installer\n"
 "Report-Msgid-Bugs-To: chrisadr@gentoo.org\n"
-"POT-Creation-Date: 2018-04-13 09:57-0500\n"
+"POT-Creation-Date: 2018-05-02 19:09-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -40,6 +40,10 @@ msgid ""
 "    Update your /etc/fstab file\n"
 "    Configure your kenrel.\n"
 "    Configure your bootloader.\n"
+msgstr ""
+
+#: pym/installer/config.py:24
+msgid "Installer is designed to aid users to install Gentoo Linux."
 msgstr ""
 
 #: pym/installer/curseshelper.py:47
@@ -94,119 +98,105 @@ msgstr ""
 msgid "Step 11: Configuring the bootloader"
 msgstr ""
 
-#: pym/installer/main.py:38
+#: pym/installer/main.py:41
 msgid "You need to provide an action, see installer --help or -h for more info"
 msgstr ""
 
-#: pym/installer/main.py:40
+#: pym/installer/main.py:43
 msgid "You need to be root for using installer"
 msgstr ""
 
-#: pym/installer/main.py:51
+#: pym/installer/main.py:54
 msgid "If you find this useful or find a bug please contact to: {}"
 msgstr ""
 
-#: pym/installer/main.py:56
+#: pym/installer/main.py:59
 msgid "available subcommands"
 msgstr ""
 
-#: pym/installer/main.py:57
+#: pym/installer/main.py:60
 msgid ""
 "Installer implements two ways of installing Gentoo Linux,            from "
 "scratch and from an existing system."
 msgstr ""
 
-#: pym/installer/main.py:59
+#: pym/installer/main.py:62
 msgid "for specific info use installer <command> --help"
 msgstr ""
 
-#: pym/installer/main.py:60
+#: pym/installer/main.py:63
 msgid "<command>"
 msgstr ""
 
-#: pym/installer/main.py:63
+#: pym/installer/main.py:66
 msgid "begin a new Gentoo Linux installation"
 msgstr ""
 
-#: pym/installer/main.py:70
+#: pym/installer/main.py:73
 msgid "begin on a specific step of installation"
 msgstr ""
 
-#: pym/installer/main.py:74
+#: pym/installer/main.py:77
 msgid "launch Terminal User Interface"
 msgstr ""
 
-#: pym/installer/main.py:76
+#: pym/installer/main.py:79
 msgid "generate a stageX tarball from current system"
 msgstr ""
 
-#: pym/installer/main.py:80
+#: pym/installer/main.py:83
 msgid "include /usr/src/ directory in stageX"
+msgstr ""
+
+#: pym/installer/main.py:85
+msgid "clean installer from /mnt/gentoo"
 msgstr ""
 
 #: pym/installer/oshelper.py:30
 msgid ""
-"I'm going to open a new terminal inside installer,you need to exit with "
-"'exit'"
+"Opening new shell inside installer, use 'exit' to close and show next "
+"message:"
 msgstr ""
 
 #: pym/installer/oshelper.py:36
-msgid "Chrooting into the new Gentoo system, use `exit` to exit"
+msgid "Chrooting into the new Gentoo system, run `installer beginner -s 7`"
 msgstr ""
 
 #: pym/installer/oshelper.py:42
 msgid "Something went wrong with the terminal, please verify it."
 msgstr ""
 
-#: pym/installer/oshelper.py:114
+#: pym/installer/oshelper.py:191
+msgid "Error: /mnt/gentoo not mounted, please verify."
+msgstr ""
+
+#: pym/installer/oshelper.py:283
 msgid "Thank you for trying installer"
 msgstr ""
 
 #: pym/installer/step1.py:22
 msgid ""
 "                        Welcome to Gentoo installer!\n"
-"===============================================================================\n"
+"================================================================================\n"
 "Before begin we need to make sure that you reach www.gentoo.org to be able "
 "to\n"
 "download stage3 tarball. You can check with: \n"
 "\n"
 "    ping -c 2 www.gentoo.org\n"
 "\n"
-"Otherwhise I can try to do it for you. Please type one of these options:\n"
-msgstr ""
-
-#: pym/installer/step1.py:33
-msgid ""
-"    [a]: try automatically\n"
-"    [s]: spawn a shell to do it manually\n"
-"    [e]: exit installer\n"
+"For more detailed information refer to:\n"
+"https://wiki.gentoo.org/wiki/Handbook:AMD64/Installation/Networking\n"
 msgstr ""
 
 #: pym/installer/step1.py:49
-msgid "Cannot connect with www.gentoo.org"
-msgstr ""
-
-#: pym/installer/step1.py:66
-msgid "Error: something happended to your shell, please verify it."
-msgstr ""
-
-#: pym/installer/step1.py:70
-msgid "Bye"
-msgstr ""
-
-#: pym/installer/step1.py:72
-msgid "Not valid option. Select [a],[s] or [e]"
-msgstr ""
-
-#: pym/installer/step1.py:77
 msgid "Verifying connectivity with www.gentoo.org..."
 msgstr ""
 
-#: pym/installer/step1.py:87
+#: pym/installer/step1.py:59
 msgid "We have connection!Now you can proceed to step 2"
 msgstr ""
 
-#: pym/installer/step1.py:92
+#: pym/installer/step1.py:64
 msgid ""
 "This prototype was not capable to resolve the issue, please refer \n"
 "to Gentoo Handbook, section 'Configuring the network', for more info."
@@ -215,7 +205,7 @@ msgstr ""
 #: pym/installer/step2.py:22
 msgid ""
 "                         Step 2 - Preparing the disks\n"
-"===============================================================================\n"
+"================================================================================\n"
 "\n"
 "Now we are going to prepare your block device and make a partition table to "
 "be\n"
@@ -273,18 +263,14 @@ msgid ""
 "    mount /dev/sdXy /mnt/gentoo\n"
 msgstr ""
 
-#: pym/installer/step2.py:80
+#: pym/installer/step2.py:79
 msgid "Great, we'll continue with step 3 in a few seconds!"
-msgstr ""
-
-#: pym/installer/step2.py:83
-msgid "Error: /mnt/gentoo not mounted, please verify."
 msgstr ""
 
 #: pym/installer/step3.py:22
 msgid ""
 "                            Step 3 - Installing Stage3\n"
-"===============================================================================\n"
+"================================================================================\n"
 "\n"
 "Before to be able to download a stage3 tarball, you need to check wheter "
 "your\n"
@@ -335,7 +321,7 @@ msgid ""
 "Please\n"
 "use the exact command:\n"
 "\n"
-"    tar xpf stage3-*.tar.{bz2,xz} --xattrs-include='*.*' --numeric-owner\n"
+"    tar xpf stage3-*.tar.xz --xattrs-include='*.*' --numeric-owner\n"
 "\n"
 "Explanation:\n"
 "    x: stands for extract\n"
@@ -348,7 +334,7 @@ msgstr ""
 #: pym/installer/step4.py:22
 msgid ""
 "                        Step 4 - Configuring compile options\n"
-"===============================================================================\n"
+"================================================================================\n"
 "Now we need to prepare Portage for the first update. All the env variables "
 "used\n"
 "by Portage are written in /mnt/gentoo/etc/portage/make.conf,for a more "
@@ -371,12 +357,14 @@ msgid ""
 "    X: number of CPUs (CPU cores) plus one. Example: -j2\n"
 msgstr ""
 
-#: pym/installer/step4.py:56
+#: pym/installer/step4.py:57
 msgid "Great! Now we can start Step 5"
 msgstr ""
 
-#: pym/installer/step4.py:58
-msgid "Please review your make.conf file, something is wrong"
+#: pym/installer/step4.py:59
+msgid ""
+"Please review your make.conf file, something is wrong,\n"
+" you can resume with 'installer beginner -s 4' once you fixed it."
 msgstr ""
 
 #: pym/installer/step5.py:22
@@ -403,7 +391,7 @@ msgid ""
 "\n"
 "Finally, copy the DNS info before entering the new environment:\n"
 "\n"
-"    cp --deference /etc/resolv.conf /mnt/gentoo/etc\n"
+"    cp --dereference /etc/resolv.conf /mnt/gentoo/etc\n"
 msgstr ""
 
 #: pym/installer/step5.py:45
@@ -422,16 +410,16 @@ msgid ""
 "\n"
 "I'll install myself inside the chroot so you'll be able to continue the "
 "tutorial\n"
-"inside the chroot.\n"
+"directly.\n"
 msgstr ""
 
-#: pym/installer/step5.py:78
+#: pym/installer/step5.py:79
 msgid "Downloading and installing in the chroot, please wait\n"
 msgstr ""
 
-#: pym/installer/step5.py:85
+#: pym/installer/step5.py:86
 msgid ""
-"I had problems to download/extract/install in the chroot, please do\n"
+"I had problems to extract/install in the chroot, please do\n"
 "it manually:\n"
 "\n"
 "    wget -qP /tmp https://github.com/ChrisADR/installer/releases/"
@@ -439,9 +427,22 @@ msgid ""
 "    tar xf /tmp/<desired_release>.tar.gz -C /tmp\n"
 "    cd /tmp/<extracted_dir>\n"
 "    python setup.py install --prefix=/mnt/gentoo/usr\n"
+"    python setup.py install_data --root=/mnt/gentoo\n"
 msgstr ""
 
 #: pym/installer/step5.py:98
+msgid ""
+"I couldn't download installer, please download it manually:\n"
+"\n"
+"    wget -qP /tmp https://github.com/ChrisADR/installer/releases/"
+"<desired_release>.tar.gz\n"
+"    tar xf /tmp/<desired_release>.tar.gz -C /tmp\n"
+"    cd /tmp/<extracted_dir>\n"
+"    python setup.py install --prefix=/mnt/gentoo/usr\n"
+"    python setup.py install_data --root=/mnt/gentoo\n"
+msgstr ""
+
+#: pym/installer/step5.py:111
 msgid ""
 "Your /dev/shm directory is a symbolic link, please run:\n"
 "    rm /dev/shm && mkdif /dev/shm\n"
@@ -450,16 +451,22 @@ msgid ""
 "    chmod 1777 /dev/shm\n"
 msgstr ""
 
-#: pym/installer/step5.py:112
-msgid "Please review your repos.conf directory, something is wrong"
+#: pym/installer/step5.py:125
+msgid ""
+"Please review your repos.conf directory, something is wrong\n"
+"If you need the text again, run 'installer beginner -s 5'"
 msgstr ""
 
-#: pym/installer/step5.py:117
-msgid "Please review your gentoo.conf file, something is wrong"
+#: pym/installer/step5.py:130
+msgid ""
+"Please review your gentoo.conf file, something is wrong\n"
+"If you need the text again, run 'installer beginner -s 5'"
 msgstr ""
 
-#: pym/installer/step5.py:122
-msgid "Please review your resolv.conf file, something is wrong"
+#: pym/installer/step5.py:135
+msgid ""
+"Please review your resolv.conf file, something is wrong\n"
+"If you need the text again, run 'installer beginner -s 5'"
 msgstr ""
 
 #: pym/installer/step6.py:22
@@ -468,21 +475,18 @@ msgid ""
 "================================================================================\n"
 "Congratulations!! Your are about to enter into your brand new Gentoo "
 "system.\n"
-"Please keep in mind that if you are at this point, you should check that "
-"all\n"
-"the necessary filesystems are linked (step 5) and if for some reason "
-"something\n"
-"goes wrong, you can resume from here (in most cases and if you don't need "
-"to\n"
-"change your partition table or filesystems and still have internet "
-"connection).\n"
+"Please keep in mind that you need to have /mnt/gentoo mounted and /proc /"
+"sys\n"
+"/dev linked (step 5) and most likely if something goes wrong, you can "
+"resume\n"
+"from here (in most cases and if you don't need to change your partition "
+"table\n"
+"or filesystems and still have internet connection).\n"
 "\n"
-"I'll execute the following command, and after that you'll need to execute "
-"the\n"
-"following two:\n"
+"The first command will be executed, after that you'll need to execute:\n"
 "\n"
-"    chroot /mnt/gentoo /bin/bash\n"
-"    source /etc/profile         #(this will set all the ENV variables)\n"
+"    chroot /mnt/gentoo /bin/bash #DO NOT USE THIS\n"
+"    source /etc/profile          #(this will set all the ENV variables)\n"
 "    export PS1=\"(chroot) $PS1\"   #(this will help you to recognize the "
 "terminal)\n"
 "\n"
@@ -516,11 +520,9 @@ msgid ""
 "\n"
 "    eselect news list\n"
 "    eselect news read\n"
-"\n"
-"Once you are done, exit the shell for the next message.\n"
 msgstr ""
 
-#: pym/installer/step7.py:43
+#: pym/installer/step7.py:41
 msgid ""
 "Now you need to select a profile for building your system. you can use "
 "`eselect`\n"
@@ -543,11 +545,10 @@ msgid ""
 "\n"
 "    emerge --ask --update --deep --newuse @world\n"
 "\n"
-"This may be a long process, please be patient. Exit the shell for the next "
-"message.\n"
+"This may be a long process, please be patient.\n"
 msgstr ""
 
-#: pym/installer/step7.py:65
+#: pym/installer/step7.py:63
 msgid ""
 "USE flags help you to customize the building process, by default, each "
 "profile\n"
@@ -560,7 +561,6 @@ msgid ""
 "https://wiki.gentoo.org/wiki/Handbook:AMD64/Full/Working\n"
 "\n"
 "Specially:\n"
-"\n"
 "https://wiki.gentoo.org/wiki/Handbook:AMD64/Full/"
 "Working#When_Portage_is_complaining\n"
 "https://wiki.gentoo.org/wiki/Handbook:AMD64/Full/Working#Using_USE_flags\n"
@@ -647,11 +647,9 @@ msgid ""
 "After that, emerge genkernel-next:\n"
 "\n"
 "    emerge --ask sys-kernel/genkernel-next\n"
-"\n"
-"Exit the shell for the next message.\n"
 msgstr ""
 
-#: pym/installer/step9.py:43
+#: pym/installer/step9.py:41
 msgid ""
 "Before to begin kernel configuration and installation, you need to edit "
 "your\n"
@@ -670,7 +668,6 @@ msgid ""
 "options, usually default is ok, but if you need some extra info, or you want "
 "to\n"
 "use systemd, these links may help you:\n"
-"\n"
 "https://wiki.gentoo.org/wiki/Systemd/Installing_Gnome3_from_scratch\n"
 "https://wiki.gentoo.org/wiki/Handbook:AMD64/Installation/"
 "Kernel#Activating_required_options\n"
@@ -702,11 +699,10 @@ msgid ""
 "    emerge --ask net-wireless/iw net-wireless/wpa_supplicant\n"
 "\n"
 "If you need more detailed info, refer to:\n"
-"\n"
 "https://wiki.gentoo.org/wiki/Handbook:AMD64/Full/Networking\n"
 msgstr ""
 
-#: pym/installer/step10.py:47
+#: pym/installer/step10.py:46
 msgid ""
 "If you are not using systemd as your init system, you need to install a "
 "logger:\n"
@@ -717,7 +713,6 @@ msgid ""
 "    emerge --ask app-admin/metalog\n"
 "\n"
 "You may want to read the next section for other optional tools:\n"
-"\n"
 "https://wiki.gentoo.org/wiki/Handbook:AMD64/Installation/Tools\n"
 msgstr ""
 
@@ -780,14 +775,18 @@ msgstr ""
 
 #: pym/installer/step11.py:68
 msgid ""
-"Finally, you need to exit the chroot and umount all the linked directories:\n"
+"To clean installer from your new Gentoo system; exit the chroot with "
+"'exit',\n"
+"then execute:\n"
+"\n"
+"    installer cleanup\n"
+"\n"
+"Finally, you need to umount all the linked directories:\n"
 "\n"
 "    umount -l /mnt/gentoo/dev{/shm,/pts,}\n"
 "    umount -R /mnt/gentoo\n"
 "\n"
-"We highly recommend you to read these sections to be able to work with "
-"Gentoo\n"
-"and Portage:\n"
+"We recommend you to read these sections to work with Gentoo and Portage:\n"
 "\n"
 "https://wiki.gentoo.org/wiki/Handbook:AMD64/Full/Working\n"
 "https://wiki.gentoo.org/wiki/Handbook:AMD64/Full/Portage\n"
