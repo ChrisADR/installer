@@ -18,8 +18,8 @@
 
 '''Configuration data'''
 
-version='0.1.0-alpha'
-development_status='Development Status :: 3 - Alpha'
+version='0.1.0-beta'
+development_status='Development Status :: 4 - Beta'
 description='Gentoo Installer Prototype.'
 long_description=_('Installer is designed to aid users to install Gentoo Linux.')
 author='Christopher Díaz Riveros'
