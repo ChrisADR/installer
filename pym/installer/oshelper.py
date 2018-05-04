@@ -114,7 +114,7 @@ def extract_installer():
     return subprocess.call(['/bin/tar','xf','/tmp/v%s.tar.gz'%(config.version),'-C','/tmp'])
 
 def install_installer():
-    subprocess.call(['/usr/bin/python','/tmp/installer-%s/setup.py'%(config.version),'install','--prefix=/mnt/gentoo/usr'],cwd='/tmp/installer-%s'%(config.version))
+    subprocess.call(['/usr/bin/python','/tmp/installer-%s/setup.py'%(config.version),'install','--prefix=/mnt/gentoo/usr','--record','/tmp/installer_files.txt'],cwd='/tmp/installer-%s'%(config.version))
     subprocess.call(['/usr/bin/python','/tmp/installer-%s/setup.py'%(config.version),'install_data','--root=/mnt/gentoo'],cwd='/tmp/installer-%s'%(config.version))
 
 
