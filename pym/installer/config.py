@@ -18,7 +18,7 @@
 
 '''Configuration data'''
 
-version='0.1.0-beta'
+version='0.1.1-beta'
 development_status='Development Status :: 4 - Beta'
 description='Gentoo Installer Prototype.'
 long_description=_('Installer is designed to aid users to install Gentoo Linux.')
