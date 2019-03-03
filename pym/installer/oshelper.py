@@ -246,7 +246,7 @@ def clean_installer():
     if(check_installed_txt()):
         remove_installed_files()
     else:
-        if os.path.isdir('/tmp/installer-%s'%(config.version)):
+        if os.path.isdir('/mnt/gentoo/tmp/installer-%s'%(config.version)):
             install_installer()
         else:
             download_installer()
@@ -254,13 +254,13 @@ def clean_installer():
         remove_installed_files()
 
 def check_installed_txt():
-    if os.path.exists('/tmp/installer_files.txt'):
+    if os.path.exists('/mnt/gentoo/tmp/installer_files.txt'):
         return True
     else:
         return False
 
 def remove_installed_files():
-    with open('/tmp/installer_files.txt') as installer_files:
+    with open('/mnt/gentoo/tmp/installer_files.txt') as installer_files:
         files_list = installer_files.readlines()
         for element in files_list:
             element=element.rstrip()
