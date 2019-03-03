@@ -87,7 +87,10 @@ def check_repos_conf_dir():
     return os.path.isdir('/mnt/gentoo/etc/portage/repos.conf')
 
 def check_gentoo_conf_repo():
-    return os.path.exists('/mnt/gentoo/etc/portage/repos.conf/gentoo.conf')
+    if (os.path.exists('/mnt/gentoo/etc/portage/repos.conf/gentoo.conf') or os.path.exists('/mnt/gentoo/etc/portage/repos.conf/repos.conf')):
+        return True
+    else:
+        return False
 
 def check_resolv_conf():
     return os.path.exists('/mnt/gentoo/etc/resolv.conf')
